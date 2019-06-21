@@ -1,7 +1,7 @@
 import React from 'react';
 import Head from 'next/head';
 import { NextSFC } from 'next';
-import Link from 'next/link';
+import Link from '../src/components/Link';
 
 const Page: NextSFC = () => (
   <div>
