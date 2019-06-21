@@ -5,3 +5,4 @@ coverage
 public/build/*
 *.log
 .env
+out/
