@@ -193,4 +193,41 @@ This is an example project setup NextJs, Typescript, Eslint, Prettier. NextJs ma
     },
     ```
 22. `npm i -D enzyme enzyme-adapter-react-16 enzyme-to-json`
-23. `npm install --save-dev typescript @types/enzyme @types/enzyme-adapter-react-16 @types/jest`
+23. `npm i -D typescript @types/enzyme @types/enzyme-adapter-react-16 @types/jest`
+24. create `jest.config.js`
+    ```
+    module.exports = {
+      moduleFileExtensions: ['ts', 'tsx', 'js'],
+      testRegex: '(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|js?|tsx?|ts?)$',
+      globals: {
+        NODE_ENV: 'test',
+      },
+      snapshotSerializers: ['enzyme-to-json/serializer'],
+      coveragePathIgnorePatterns: [
+        '/node_modules/',
+        'enzyme.js',
+        '<rootDir>/configs/',
+        'jest.config.js',
+        '.json',
+        '.snap',
+      ],
+      setupFiles: ['<rootDir>/enzyme.js'],
+      coverageReporters: ['json', 'lcov', 'text', 'text-summary'],
+      moduleNameMapper: {
+        '\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$':
+          '<rootDir>/__mocks__/mocks.js',
+        '\\.(css|less|scss)$': '<rootDir>/__mocks__/mocks.js',
+      },
+    };
+    ```
+25. create `enzyme.js`
+    ```
+    import Enzyme from 'enzyme';
+    import Adapter from 'enzyme-adapter-react-16';
+    import { setConfig } from 'next/config';
+    import config from './next.config';
+
+    // Make sure you can use "publicRuntimeConfig" within tests.
+    setConfig(config);
+    Enzyme.configure({ adapter: new Adapter() });
+    ```

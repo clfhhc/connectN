@@ -22,6 +22,9 @@
     "react-dom": "^16.8.6"
   },
   "devDependencies": {
+    "@types/enzyme": "^3.9.3",
+    "@types/enzyme-adapter-react-16": "^1.0.5",
+    "@types/jest": "^24.0.15",
     "@types/next": "^8.0.5",
     "@types/node": "^12.0.8",
     "@types/react": "^16.8.22",
@@ -32,6 +35,9 @@
     "babel-jest": "^24.8.0",
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
+    "enzyme": "^3.10.0",
+    "enzyme-adapter-react-16": "^1.14.0",
+    "enzyme-to-json": "^3.3.5",
     "eslint": "^5.16.0",
     "eslint-config-airbnb": "^17.1.0",
     "eslint-config-prettier": "^4.3.0",
