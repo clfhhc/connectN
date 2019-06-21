@@ -181,3 +181,16 @@ This is an example project setup NextJs, Typescript, Eslint, Prettier. NextJs ma
 ### [Create Pages](https://github.com/zeit/next.js/tree/canary/examples/with-typescript)
 18. create `pages` folder
 19. create `pages.tsx` under `pages/` (i.e. `pages/index.tsx` for `/` route)
+
+### [Jest and Enzyme](https://medium.com/@miiny/unit-test-next-js-with-jest-and-enzyme-5b305a8e29fe)
+20. `npm i -D jest babel-jest babel-core babel-preset-env babel-preset-react`
+21. add scripts in `package.json`
+    ```
+    "scripts": {
+      "test": "jest",
+      "test:watch": "jest --watch",
+      "test:coverage": "jest --coverage"
+    },
+    ```
+22. `npm i -D enzyme enzyme-adapter-react-16 enzyme-to-json`
+23. `npm install --save-dev typescript @types/enzyme @types/enzyme-adapter-react-16 @types/jest`
