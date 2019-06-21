@@ -5,7 +5,7 @@ This is an example project setup NextJs, Typescript, Eslint, Prettier. NextJs ma
 0. `brew install nvm`
 1. `nvm install node`
 2. `git init`
-3. add .gitignore
+3. add `.gitignore`
 4. `node -v > .nvmrc`
 5. `npm init -y`
 
@@ -258,4 +258,43 @@ This is an example project setup NextJs, Typescript, Eslint, Prettier. NextJs ma
         '@zeit/next-typescript/babel',
       ],
     };
+    ```
+
+### [Deploy to Github Pages](https://github.com/zeit/next.js/issues/3335#issuecomment-489354854)
+(deploy to /docs intead of using gh-pages branch)
+30. create `assetPrefix` and `linkPrefix` in config
+    ```
+    // ...
+
+    const isProd = process.env.NODE_ENV === 'production';
+    const prodAssetPrefix = '/NextJs_Ts_Eslint_Jest';
+
+    module.exports = withTypescript({
+      webpack(config, options) {
+        // ...
+      },
+      assetPrefix: isProd ? prodAssetPrefix : '',
+      publicRuntimeConfig: {
+        linkPrefix: isProd ? prodAssetPrefix : '',
+      },
+    });
+    ```
+31. change `as` prop in `next/Link` to add `linkPrefix`
+    ```
+    // ...
+    import Link from 'next/link';
+
+    const { publicRuntimeConfig } = getConfig();
+    // ...
+    const PrefixedLink: React.FC<Props> = ({ href, as = href, children }) => (
+      <Link href={href} as={`${linkPrefix}${as}`}>
+        {children}
+      </Link>
+    );
+    // ...
+    ```
+32. change `scripts` in `package.json`
+    ```
+    "export": "npm run build && next export",
+    "deploy": "npm run export && touch docs/.nojekyll && cp -R out/* docs",
     ```

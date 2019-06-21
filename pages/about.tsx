@@ -1,14 +1,11 @@
 import React from 'react';
-import Head from 'next/head';
 import { NextSFC } from 'next';
+import Head from '../src/components/Head';
 import Link from '../src/components/Link';
 
 const Page: NextSFC = () => (
   <div>
-    <Head>
-      <title>About</title>
-      <meta name="viewport" content="initial-scale=1.0, width=device-width" key="viewport" />
-    </Head>
+    <Head title="About" />
     <h1>About</h1>
     <p>This the About page.</p>
     <p>

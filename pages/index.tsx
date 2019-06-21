@@ -1,6 +1,6 @@
 import React from 'react';
-import Head from 'next/head';
 import { NextSFC } from 'next';
+import Head from '../src/components/Head';
 import Link from '../src/components/Link';
 
 interface Props {
@@ -9,10 +9,7 @@ interface Props {
 
 const Page: NextSFC<Props> = ({ pathname }) => (
   <div>
-    <Head>
-      <title>Index</title>
-      <meta name="viewport" content="initial-scale=1.0, width=device-width" key="viewport" />
-    </Head>
+    <Head title="Index" />
     <h1>Index</h1>
     <p>This the index page.</p>
     <p>{`Your request pathname: ${pathname}`}</p>
