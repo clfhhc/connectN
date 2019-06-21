@@ -231,11 +231,19 @@ This is an example project setup NextJs, Typescript, Eslint, Prettier. NextJs ma
     setConfig(config);
     Enzyme.configure({ adapter: new Adapter() });
     ```
+26. change `env` in `.eslintrc.js`
+    ```
+    env: {
+            browser: true,
+            node: true,
+            jest: true
+          },
+    ```
 
 ### [Styled-JSX](https://nextjs.org/blog/styling-next-with-styled-jsx)
-26. `npm i -P styled-jsx`
-27. `npm i -D @types/styled-jsx`
-28. change `babel.config.js`
+27. `npm i -P styled-jsx`
+28. `npm i -D @types/styled-jsx`
+29. change `babel.config.js`
     ```
     module.exports = {
       presets: [

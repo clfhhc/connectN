@@ -16,7 +16,8 @@ module.exports =  {
   },
   env: {
     browser: true,
-    node: true
+    node: true,
+    jest: true
   },
   rules:  {
     // Place to specify ESLint rules. Can be used to overwrite rules specified from the extended configs
