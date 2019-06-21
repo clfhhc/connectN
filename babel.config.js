@@ -1,6 +1,13 @@
-module.exports ={
+module.exports = {
   presets: [
-    'next/babel',
-    '@zeit/next-typescript/babel'
-  ]
+    [
+      'next/babel',
+      {
+        'styled-jsx': {},
+        'preset-env': {},
+        'preset-react': {},
+      },
+    ],
+    '@zeit/next-typescript/babel',
+  ],
 };
