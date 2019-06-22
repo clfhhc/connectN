@@ -1,5 +1,5 @@
 # Project Setup with NextJs, Typescript, Eslint, Prettier
-This is an example project setup NextJs, Typescript, Eslint, Prettier. NextJs made serverside rendering React framework so easy with much less boilerplate code.
+This is an example project setup with NextJs, Typescript, Eslint, Prettier, Jest, Enzyme, Styled-JSX, and Github-Pages. NextJs made serverside rendering React framework so easy with much less boilerplate code.
 
 ## Setup
 0. `brew install nvm`
