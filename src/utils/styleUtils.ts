@@ -5,16 +5,18 @@ export const rem = (num: number) => {
   return `${remVal}rem`;
 };
 
-export const buttonReset = css`
-  border: none;
-  border-radius: 0;
-  margin: 0;
-  padding: 0;
-  width: auto;
-  overflow: visible;
-  background: transparent;
+export const buttonReset = css.global`
+  button {
+    border: none;
+    border-radius: 0;
+    margin: 0;
+    padding: 0;
+    width: auto;
+    overflow: visible;
+    background: transparent;
+  }
 
-  &:focus {
+  button:focus {
     outline: none;
     box-shadow: none;
   }
