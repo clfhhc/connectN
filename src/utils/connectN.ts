@@ -14,8 +14,8 @@ export const incrementalCheckWin = ({
   board,
   piece,
   col,
-  checkAgainst = 2 ** 4 - 1,
-  fullBoard = 2 ** 7 - 1,
+  checkAgainst,
+  fullBoard,
 }: {
   board: Readonly<number[]>;
   piece: Readonly<number>;
