@@ -1,7 +1,7 @@
 import produce from 'immer';
 import createReducer from '../utils/createReducer';
 import { ReducerObj } from '../utils/types';
-import { GameRecord, gameRecordKeys } from '../utils/connect4';
+import { GameRecord, gameRecordKeys } from '../utils/connectN';
 
 /* eslint no-param-reassign: ["error", { "props": true, "ignorePropertyModificationsFor": ["draftState"] }] */
 

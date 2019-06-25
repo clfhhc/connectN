@@ -2,7 +2,7 @@ import React, { useReducer, useEffect, useCallback, useMemo } from 'react';
 import css from 'styled-jsx/css';
 import useReducerContext from '../../models/index';
 import { inititalState, reducer } from '../../models/game';
-import { resetGame, placeOnePiece, getBanner } from '../../utils/connect4';
+import { resetGame, placeOnePiece, getBanner } from '../../utils/connectN';
 import { rem } from '../../utils/styleUtils';
 
 const titleStyles = css.resolve`
@@ -69,10 +69,10 @@ const boardStylesOnColNum = (colNum: number) => css.resolve`
   grid-auto-rows: auto;
 `;
 
-const Connect4: React.FC = () => {
+const ConnectN: React.FC = () => {
   const { state } = useReducerContext();
   const [gameState, gameDispatch] = useReducer(reducer, inititalState);
-  const { fullBoard, boardSetup, next, names, colNum, rowNum, checkAgainst } = state.setup;
+  const { fullBoard, boardSetup, next, names, colNum, rowNum, checkAgainst, winRule } = state.setup;
   const { record: gameRecord } = gameState;
 
   useEffect(() => {
@@ -120,7 +120,7 @@ const Connect4: React.FC = () => {
   return (
     <div>
       <h1 className={titleStyles.className}>
-        {'Connect 4'}
+        {`Connect ${winRule}`}
         {titleStyles.styles}
       </h1>
       <p className={bannerStyles.className}>
@@ -160,4 +160,4 @@ const Connect4: React.FC = () => {
   );
 };
 
-export default Connect4;
+export default ConnectN;
