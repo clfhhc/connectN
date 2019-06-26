@@ -6,7 +6,7 @@ import ConnectN from '../src/components/ConnectN';
 
 const Page: NextFC<{}, {}, NextContext> = () => (
   <div>
-    <Head title="Connect N" />
+    <Head title="Connect N" themeColor="white" />
     <ConnectN />
     <p>
       <Link href="/about">

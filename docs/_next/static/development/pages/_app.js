@@ -11374,8 +11374,8 @@ __webpack_require__.r(__webpack_exports__);
 
 /* eslint no-param-reassign: ["error", { "props": true, "ignorePropertyModificationsFor": ["draftState"] }] */
 
-var maxRow = 20;
-var maxCol = 20;
+var maxRow = 10;
+var maxCol = 12;
 var minRow = 3;
 var minCol = 3;
 var inititalState = {

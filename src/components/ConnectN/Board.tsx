@@ -11,6 +11,9 @@ const boardStylesOnColNum = (colNum: number) => css.resolve`
   grid-gap: 0;
   grid-auto-rows: auto;
   border: ${rem(2)} solid black;
+
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-tap-highlight-color: transparent;
 `;
 
 const cellStyles = css.resolve`
@@ -24,6 +27,12 @@ const checkerStyles = css.resolve`
   margin: ${rem(5)};
   border-radius: 50%;
   border: ${rem(2)} solid gray;
+
+  @media only screen and (max-width: 400px) {
+    padding-bottom: calc(100% - ${rem(2 * 3)});
+    margin: ${rem(2)};
+    border: ${rem(1)} solid gray;
+  }
 `;
 
 export const playerCheckerStyles = [

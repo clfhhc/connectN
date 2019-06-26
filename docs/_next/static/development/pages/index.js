@@ -12931,6 +12931,7 @@ var Page = function Page() {
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_src_components_Head__WEBPACK_IMPORTED_MODULE_1__["default"], {
     title: "Connect N",
+    themeColor: "white",
     __source: {
       fileName: _jsxFileName,
       lineNumber: 9
@@ -12994,11 +12995,11 @@ var _jsxFileName = "/Users/david.chen/Documents/projects/Nextjs_Ts_Eslint/src/co
 var boardStylesOnColNum = function boardStylesOnColNum(colNum) {
   return {
     styles: react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(styled_jsx_style__WEBPACK_IMPORTED_MODULE_1___default.a, {
-      id: "1011163569",
+      id: "3912879270",
       dynamic: [Object(_utils_styleUtils__WEBPACK_IMPORTED_MODULE_3__["rem"])(80 * colNum), Object(_utils_styleUtils__WEBPACK_IMPORTED_MODULE_3__["rem"])(20), colNum, Object(_utils_styleUtils__WEBPACK_IMPORTED_MODULE_3__["rem"])(2)],
       __self: this
-    }, ".__jsx-style-dynamic-selector{max-width:".concat(Object(_utils_styleUtils__WEBPACK_IMPORTED_MODULE_3__["rem"])(80 * colNum), ";margin:").concat(Object(_utils_styleUtils__WEBPACK_IMPORTED_MODULE_3__["rem"])(20), " auto;box-sizing:border-box;display:grid;grid-template-columns:repeat(").concat(colNum, ",1fr);grid-gap:0;grid-auto-rows:auto;border:").concat(Object(_utils_styleUtils__WEBPACK_IMPORTED_MODULE_3__["rem"])(2), " solid black;}")),
-    className: styled_jsx_style__WEBPACK_IMPORTED_MODULE_1___default.a.dynamic([["1011163569", [Object(_utils_styleUtils__WEBPACK_IMPORTED_MODULE_3__["rem"])(80 * colNum), Object(_utils_styleUtils__WEBPACK_IMPORTED_MODULE_3__["rem"])(20), colNum, Object(_utils_styleUtils__WEBPACK_IMPORTED_MODULE_3__["rem"])(2)]]])
+    }, ".__jsx-style-dynamic-selector{max-width:".concat(Object(_utils_styleUtils__WEBPACK_IMPORTED_MODULE_3__["rem"])(80 * colNum), ";margin:").concat(Object(_utils_styleUtils__WEBPACK_IMPORTED_MODULE_3__["rem"])(20), " auto;box-sizing:border-box;display:grid;grid-template-columns:repeat(").concat(colNum, ",1fr);grid-gap:0;grid-auto-rows:auto;border:").concat(Object(_utils_styleUtils__WEBPACK_IMPORTED_MODULE_3__["rem"])(2), " solid black;-webkit-tap-highlight-color:rgba(0,0,0,0);-webkit-tap-highlight-color:transparent;}")),
+    className: styled_jsx_style__WEBPACK_IMPORTED_MODULE_1___default.a.dynamic([["3912879270", [Object(_utils_styleUtils__WEBPACK_IMPORTED_MODULE_3__["rem"])(80 * colNum), Object(_utils_styleUtils__WEBPACK_IMPORTED_MODULE_3__["rem"])(20), colNum, Object(_utils_styleUtils__WEBPACK_IMPORTED_MODULE_3__["rem"])(2)]]])
   };
 };
 
@@ -13011,10 +13012,10 @@ var cellStyles = {
 };
 var checkerStyles = {
   styles: react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(styled_jsx_style__WEBPACK_IMPORTED_MODULE_1___default.a, {
-    id: "1175964783",
+    id: "943097829",
     __self: undefined
-  }, ".jsx-1175964783{width:auto;padding-bottom:calc(100% - ".concat(Object(_utils_styleUtils__WEBPACK_IMPORTED_MODULE_3__["rem"])(2 * 7), ");margin:").concat(Object(_utils_styleUtils__WEBPACK_IMPORTED_MODULE_3__["rem"])(5), ";border-radius:50%;border:").concat(Object(_utils_styleUtils__WEBPACK_IMPORTED_MODULE_3__["rem"])(2), " solid gray;}")),
-  className: "jsx-1175964783"
+  }, ".jsx-943097829{width:auto;padding-bottom:calc(100% - ".concat(Object(_utils_styleUtils__WEBPACK_IMPORTED_MODULE_3__["rem"])(2 * 7), ");margin:").concat(Object(_utils_styleUtils__WEBPACK_IMPORTED_MODULE_3__["rem"])(5), ";border-radius:50%;border:").concat(Object(_utils_styleUtils__WEBPACK_IMPORTED_MODULE_3__["rem"])(2), " solid gray;}@media only screen and (max-width:400px){.jsx-943097829{padding-bottom:calc(100% - ").concat(Object(_utils_styleUtils__WEBPACK_IMPORTED_MODULE_3__["rem"])(2 * 3), ");margin:").concat(Object(_utils_styleUtils__WEBPACK_IMPORTED_MODULE_3__["rem"])(2), ";border:").concat(Object(_utils_styleUtils__WEBPACK_IMPORTED_MODULE_3__["rem"])(1), " solid gray;}}")),
+  className: "jsx-943097829"
 };
 var playerCheckerStyles = [{
   styles: react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(styled_jsx_style__WEBPACK_IMPORTED_MODULE_1___default.a, {
@@ -13069,7 +13070,7 @@ var Board = function Board(_ref) {
     className: boardStyles.className,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 76
+      lineNumber: 85
     },
     __self: this
   }, boardStyles.styles, boards[0].map(function (_c, colInd) {
@@ -13082,7 +13083,7 @@ var Board = function Board(_ref) {
         onClick: onClickOnCell(colInd),
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 80
+          lineNumber: 89
         },
         __self: this
       }, cellGridPosStyles[colInd][rowInd].styles, cellStyles.styles, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
@@ -13091,7 +13092,7 @@ var Board = function Board(_ref) {
         }, '')),
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 89
+          lineNumber: 98
         },
         __self: this
       }, checkerStyles.styles, playerCheckerStyles.map(function (styles) {
@@ -13453,17 +13454,18 @@ var Head = function Head(_ref) {
       _ref$keywords = _ref.keywords,
       keywords = _ref$keywords === void 0 ? title : _ref$keywords,
       refresh = _ref.refresh,
+      themeColor = _ref.themeColor,
       children = _ref.children;
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_head__WEBPACK_IMPORTED_MODULE_1___default.a, {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 23
+      lineNumber: 25
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("title", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 24
+      lineNumber: 26
     },
     __self: this
   }, title), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("meta", {
@@ -13471,7 +13473,7 @@ var Head = function Head(_ref) {
     key: "charset",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 25
+      lineNumber: 27
     },
     __self: this
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("meta", {
@@ -13480,7 +13482,7 @@ var Head = function Head(_ref) {
     key: "description",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 26
+      lineNumber: 28
     },
     __self: this
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("meta", {
@@ -13489,7 +13491,7 @@ var Head = function Head(_ref) {
     key: "viewport",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 27
+      lineNumber: 29
     },
     __self: this
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("meta", {
@@ -13498,7 +13500,7 @@ var Head = function Head(_ref) {
     key: "keywords",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 32
+      lineNumber: 34
     },
     __self: this
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("meta", {
@@ -13507,7 +13509,7 @@ var Head = function Head(_ref) {
     key: "UA-compatible",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 33
+      lineNumber: 35
     },
     __self: this
   }), refresh && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("meta", {
@@ -13516,7 +13518,16 @@ var Head = function Head(_ref) {
     key: "refresh",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 34
+      lineNumber: 36
+    },
+    __self: this
+  }), themeColor && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("meta", {
+    name: "theme-color",
+    content: themeColor,
+    key: "theme-color",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 37
     },
     __self: this
   }), children);
@@ -13678,8 +13689,8 @@ __webpack_require__.r(__webpack_exports__);
 
 /* eslint no-param-reassign: ["error", { "props": true, "ignorePropertyModificationsFor": ["draftState"] }] */
 
-var maxRow = 20;
-var maxCol = 20;
+var maxRow = 10;
+var maxCol = 12;
 var minRow = 3;
 var minCol = 3;
 var inititalState = {

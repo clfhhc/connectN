@@ -5,7 +5,7 @@ import Link from '../src/components/Link';
 
 const Page: NextSFC = () => (
   <div>
-    <Head title="About" />
+    <Head title="About" themeColor="white" />
     <h1>About</h1>
     <p>Connect N is using bitwise to check winning condition.</p>
     <p>by David Chen</p>

@@ -8,6 +8,7 @@ interface Props {
   viewportScale?: number;
   keywords?: string;
   refresh?: number;
+  themeColor?: string;
   children?: React.ReactElement;
 }
 
@@ -18,6 +19,7 @@ const Head: React.FC<Props> = ({
   viewportScale = 1.0,
   keywords = title,
   refresh,
+  themeColor,
   children,
 }) => (
   <NextHead>
@@ -32,6 +34,7 @@ const Head: React.FC<Props> = ({
     <meta name="keywords" content={keywords} key="keywords" />
     <meta httpEquiv="X-UA-Compatible" content="ie=edge" key="UA-compatible" />
     {refresh && <meta httpEquiv="refresh" content={`${refresh}`} key="refresh" />}
+    {themeColor && <meta name="theme-color" content={themeColor} key="theme-color" />}
     {children}
   </NextHead>
 );
