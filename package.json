@@ -8,7 +8,7 @@
     "build": "next build",
     "start": "next start",
     "export": "npm run build && next export",
-    "deploy": "npm run export && touch docs/.nojekyll && cp -R out/* docs",
+    "deploy": "NODE_ENV=production npm run export && touch docs/.nojekyll && cp -R out/* docs",
     "test": "jest",
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage"

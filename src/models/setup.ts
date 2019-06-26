@@ -5,8 +5,8 @@ import { setInitialState } from '../utils/setState';
 
 /* eslint no-param-reassign: ["error", { "props": true, "ignorePropertyModificationsFor": ["draftState"] }] */
 
-const maxRow = 20;
-const maxCol = 20;
+const maxRow = 10;
+const maxCol = 12;
 const minRow = 3;
 const minCol = 3;
 
