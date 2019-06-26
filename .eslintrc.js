@@ -55,7 +55,8 @@ module.exports =  {
       }
     ],
     'react-hooks/rules-of-hooks': 'error',
-    'react-hooks/exhaustive-deps': 'off'
+    'react-hooks/exhaustive-deps': 'off',
+    'no-bitwise': 'off'
   },
   plugins: [
     '@typescript-eslint/eslint-plugin',

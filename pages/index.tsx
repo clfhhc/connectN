@@ -1,18 +1,13 @@
 import React from 'react';
-import { NextSFC } from 'next';
+import { NextFC, NextContext } from 'next';
 import Head from '../src/components/Head';
 import Link from '../src/components/Link';
+import ConnectN from '../src/components/ConnectN';
 
-interface Props {
-  pathname: string;
-}
-
-const Page: NextSFC<Props> = ({ pathname }) => (
+const Page: NextFC<{}, {}, NextContext> = () => (
   <div>
-    <Head title="Index" />
-    <h1>Index</h1>
-    <p>This the index page.</p>
-    <p>{`Your request pathname: ${pathname}`}</p>
+    <Head title="Connect N" />
+    <ConnectN />
     <p>
       <Link href="/about">
         <a>About</a>
@@ -20,9 +15,5 @@ const Page: NextSFC<Props> = ({ pathname }) => (
     </p>
   </div>
 );
-
-Page.getInitialProps = async ({ pathname }: Props): Promise<Props> => {
-  return { pathname };
-};
 
 export default Page;

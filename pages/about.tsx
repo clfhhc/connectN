@@ -7,10 +7,11 @@ const Page: NextSFC = () => (
   <div>
     <Head title="About" />
     <h1>About</h1>
-    <p>This the About page.</p>
+    <p>Connect N is using bitwise to check winning condition.</p>
+    <p>by David Chen</p>
     <p>
       <Link href="/">
-        <a>Index</a>
+        <a>Connect 4</a>
       </Link>
     </p>
   </div>
