@@ -5,7 +5,7 @@ const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 /* eslint-enable @typescript-eslint/no-var-requires */
 
 const isProd = process.env.NODE_ENV === 'production';
-const prodAssetPrefix = '/NextJs_Ts_Eslint_Jest';
+const prodAssetPrefix = '/connectN';
 
 module.exports = withTypescript({
   webpack(config, options) {
