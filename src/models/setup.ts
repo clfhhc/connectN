@@ -37,7 +37,7 @@ const reducerObj: ReducerObj<State> = {
     state,
     { rowNum, colNum, winRule }: { rowNum: number; colNum: number; winRule: number }
   ) => {
-    if (winRule > rowNum || winRule > colNum || winRule < 2) return state;
+    if (winRule > rowNum || winRule > colNum || winRule < 3) return state;
     if (colNum > maxCol || colNum < minCol || rowNum > maxRow || rowNum < minRow) return state;
     return produce(state, draftState => {
       draftState.rowNum = rowNum;

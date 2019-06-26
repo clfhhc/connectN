@@ -10,27 +10,29 @@ const boardStylesOnColNum = (colNum: number) => css.resolve`
   grid-template-columns: repeat(${colNum}, 1fr);
   grid-gap: 0;
   grid-auto-rows: auto;
+  border: ${rem(2)} solid black;
 `;
 
 const cellStyles = css.resolve`
   cursor: pointer;
-  border: ${rem(1)} solid black;
+  border: ${rem(1)} solid lightgray;
 `;
 
 const checkerStyles = css.resolve`
   width: auto;
-  padding-bottom: 100%;
+  padding-bottom: calc(100% - ${rem(2 * 7)});
+  margin: ${rem(5)};
   border-radius: 50%;
-  border: ${rem(2)} solid transparent;
+  border: ${rem(2)} solid gray;
 `;
 
-const playerCheckerStyles = [
+export const playerCheckerStyles = [
   css.resolve`
-    border-color: skyblue;
+    border-color: gray;
     background: yellow;
   `,
   css.resolve`
-    border-color: white;
+    border-color: lightgray;
     background: red;
   `,
   css.resolve`
@@ -38,7 +40,7 @@ const playerCheckerStyles = [
     background: skyblue;
   `,
   css.resolve`
-    border-color: white;
+    border-color: lightgray;
     background: pink;
   `,
 ];
