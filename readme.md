@@ -286,8 +286,8 @@ This is an example project setup with NextJs, Typescript, Eslint, Prettier, Jest
 
     const { publicRuntimeConfig } = getConfig();
     // ...
-    const PrefixedLink: React.FC<Props> = ({ href, as = href, children }) => (
-      <Link href={href} as={`${linkPrefix}${as}`}>
+    const PrefixedLink: React.FC<Props> = ({ href, as = href, children, passHref }) => (
+      <Link href={href} as={`${linkPrefix}${as}` passHref={passHref}}>
         {children}
       </Link>
     );
@@ -297,4 +297,44 @@ This is an example project setup with NextJs, Typescript, Eslint, Prettier, Jest
     ```
     "export": "npm run build && next export",
     "deploy": "npm run export && touch docs/.nojekyll && cp -R out/* docs",
+    ```
+
+### [ServiceWorker](https://gist.github.com/kosamari/7c5d1e8449b2fbc97d372675f16b566e)
+33. `npm i -P next-offline`
+34. add to `next.config.js` to make `service-worker.js` available at the root of project folder
+    ```
+    const withOffline = require('next-offline');
+    //...
+
+    const prodAssetPrefix = '/NextJs_Ts_Eslint_Jest';
+
+    module.exports = withOffline(
+      withTypescript({
+        //...
+
+        registerSwPrefix: `${prodAssetPrefix}`,
+        scope: `${prodAssetPrefix}/`,
+        workboxOpts: {
+          swDest: 'service-worker.js',
+          globPatterns: ['app/static/**/*'],
+          globDirectory: '.',
+          modifyURLPrefix: {
+            app: isProd ? prodAssetPrefix : '',
+          },
+          runtimeCaching: [
+            //...
+          ],
+        },
+
+        //...
+      })
+    );
+    ```
+35. add `<link rel="canonical" href="/NextJs_Ts_Eslint_Jest" />` to `<Head />` to force redirected to `/NextJs_Ts_Eslint_Jest` and allow scope of service worker works under `/NextJs_Ts_Eslint_Jest/` (without [adding `service-worker-allowed` header in repsonse header](https://medium.com/dev-channel/two-http-headers-related-to-service-workers-you-never-may-have-heard-of-c8862f76cc60) to request for greater scope)
+    ```
+    <Head>
+      <Link href="/" passHref>
+        <link rel="canonical" />
+      </Link>
+    </Head>
     ```
