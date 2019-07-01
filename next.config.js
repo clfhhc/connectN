@@ -21,7 +21,7 @@ module.exports = withOffline(
     registerSwPrefix: `${prodAssetPrefix}/`,
     scope: `${prodAssetPrefix}/`,
     workboxOpts: {
-      swDest: 'app/service-worker.js',
+      swDest: 'service-worker.js',
       globPatterns: ['app/static/**/*'],
       globDirectory: '.',
       modifyURLPrefix: {
