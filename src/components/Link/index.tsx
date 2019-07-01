@@ -10,10 +10,11 @@ interface Props {
   href: string | UrlLike;
   as?: string | UrlLike;
   children: React.ReactElement;
+  passHref?: boolean;
 }
 
-const PrefixedLink: React.FC<Props> = ({ href, as = href, children }) => (
-  <Link href={href} as={`${linkPrefix}${as}`}>
+const PrefixedLink: React.FC<Props> = ({ href, as = href, children, passHref }) => (
+  <Link href={href} as={`${linkPrefix}${as}`} passHref={passHref}>
     {children}
   </Link>
 );
