@@ -12937,29 +12937,44 @@ var Page = function Page() {
       lineNumber: 9
     },
     __self: this
-  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_src_components_ConnectN__WEBPACK_IMPORTED_MODULE_3__["default"], {
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_src_components_Link__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    href: "/",
+    passHref: true,
     __source: {
       fileName: _jsxFileName,
       lineNumber: 10
     },
     __self: this
-  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("link", {
+    rel: "canonical",
     __source: {
       fileName: _jsxFileName,
       lineNumber: 11
+    },
+    __self: this
+  }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_src_components_ConnectN__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 14
+    },
+    __self: this
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 15
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_src_components_Link__WEBPACK_IMPORTED_MODULE_2__["default"], {
     href: "/about",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 12
+      lineNumber: 16
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 13
+      lineNumber: 17
     },
     __self: this
   }, "About"))));
@@ -13572,13 +13587,15 @@ var PrefixedLink = function PrefixedLink(_ref) {
   var href = _ref.href,
       _ref$as = _ref.as,
       as = _ref$as === void 0 ? href : _ref$as,
-      children = _ref.children;
+      children = _ref.children,
+      passHref = _ref.passHref;
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_2___default.a, {
     href: href,
     as: "".concat(linkPrefix).concat(as),
+    passHref: passHref,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 16
+      lineNumber: 17
     },
     __self: this
   }, children);
@@ -14014,7 +14031,7 @@ var transition = function transition() {
 
 /***/ }),
 
-/***/ 1:
+/***/ 0:
 /*!****************************************************************************************************************************************************!*\
   !*** multi next-client-pages-loader?page=%2F&absolutePagePath=%2FUsers%2Fdavid.chen%2FDocuments%2Fprojects%2FNextjs_Ts_Eslint%2Fpages%2Findex.tsx ***!
   \****************************************************************************************************************************************************/
@@ -14037,5 +14054,5 @@ module.exports = dll_1aef2d0bbc0d334d831c;
 
 /***/ })
 
-},[[1,"static/runtime/webpack.js"]]]);
+},[[0,"static/runtime/webpack.js"]]]);
 //# sourceMappingURL=index.js.map
