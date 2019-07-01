@@ -4657,6 +4657,29 @@ for (var i = 0; i < DOMIterables.length; i++) {
 
 /***/ }),
 
+/***/ "./node_modules/next-offline/register-sw-compiled.js":
+/*!***********************************************************!*\
+  !*** ./node_modules/next-offline/register-sw-compiled.js ***!
+  \***********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', function() {
+    navigator.serviceWorker
+      .register('/service-worker.js', {scope: '/'})
+      .then(function(registration) {
+        console.log('SW registered: ', registration);
+      })
+      .catch(function(registrationError) {
+        console.log('SW registration failed: ', registrationError);
+      });
+  });
+}
+
+
+/***/ }),
+
 /***/ "./node_modules/next-server/config.js":
 /*!********************************************!*\
   !*** ./node_modules/next-server/config.js ***!
@@ -12764,6 +12787,19 @@ module.exports = function(module) {
 
 /***/ }),
 
+/***/ 0:
+/*!*************************************************************************************************************!*\
+  !*** multi ./node_modules/next-offline/register-sw-compiled.js ./node_modules/next/dist/client/next-dev.js ***!
+  \*************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+__webpack_require__(/*! /Users/david.chen/Documents/projects/Nextjs_Ts_Eslint/node_modules/next-offline/register-sw-compiled.js */"./node_modules/next-offline/register-sw-compiled.js");
+module.exports = __webpack_require__(/*! ./node_modules/next/dist/client/next-dev.js */"./node_modules/next/dist/client/next-dev.js");
+
+
+/***/ }),
+
 /***/ "dll-reference dll_1aef2d0bbc0d334d831c":
 /*!*******************************************!*\
   !*** external "dll_1aef2d0bbc0d334d831c" ***!
@@ -12775,5 +12811,5 @@ module.exports = dll_1aef2d0bbc0d334d831c;
 
 /***/ })
 
-},[["./node_modules/next/dist/client/next-dev.js","static/runtime/webpack.js"]]]);
+},[[0,"static/runtime/webpack.js"]]]);
 //# sourceMappingURL=main.js.map

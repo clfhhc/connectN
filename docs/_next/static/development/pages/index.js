@@ -13076,9 +13076,10 @@ var Board = function Board(_ref) {
   }, boardStyles.styles, boards[0].map(function (_c, colInd) {
     return _babel_runtime_corejs2_core_js_array_from__WEBPACK_IMPORTED_MODULE_0___default()(Array(rowNum), function (_r, rowInd) {
       return react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("button", {
-        // eslint-disable-next-line react/no-array-index-key
-        key: "cell-".concat(colInd, "-").concat(rowInd),
         type: "button",
+        "aria-label": "board" // eslint-disable-next-line react/no-array-index-key
+        ,
+        key: "cell-".concat(colInd, "-").concat(rowInd),
         className: "".concat(cellStyles.className, " ").concat(cellGridPosStyles[colInd][rowInd].className),
         onClick: onClickOnCell(colInd),
         __source: {
@@ -13092,7 +13093,7 @@ var Board = function Board(_ref) {
         }, '')),
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 98
+          lineNumber: 99
         },
         __self: this
       }, checkerStyles.styles, playerCheckerStyles.map(function (styles) {
@@ -13192,10 +13193,10 @@ var legendColorStyles = {
 };
 var inputStyles = {
   styles: react__WEBPACK_IMPORTED_MODULE_4___default.a.createElement(styled_jsx_style__WEBPACK_IMPORTED_MODULE_3___default.a, {
-    id: "2515912256",
+    id: "291324850",
     __self: undefined
-  }, ".jsx-2515912256{display:block;text-align:center;font-size:".concat(Object(_utils_styleUtils__WEBPACK_IMPORTED_MODULE_9__["rem"])(16), ";outline:none;margin:").concat(Object(_utils_styleUtils__WEBPACK_IMPORTED_MODULE_9__["rem"])(20), " auto;max-width:").concat(Object(_utils_styleUtils__WEBPACK_IMPORTED_MODULE_9__["rem"])(300), ";width:100%;}")),
-  className: "jsx-2515912256"
+  }, ".jsx-291324850{display:block;text-align:center;font-size:".concat(Object(_utils_styleUtils__WEBPACK_IMPORTED_MODULE_9__["rem"])(16), ";outline:none;margin:").concat(Object(_utils_styleUtils__WEBPACK_IMPORTED_MODULE_9__["rem"])(20), " auto;max-width:").concat(Object(_utils_styleUtils__WEBPACK_IMPORTED_MODULE_9__["rem"])(350), ";border:").concat(Object(_utils_styleUtils__WEBPACK_IMPORTED_MODULE_9__["rem"])(1), " solid gray;width:100%;}")),
+  className: "jsx-291324850"
 };
 
 var ConnectN = function ConnectN() {
@@ -13267,17 +13268,18 @@ var ConnectN = function ConnectN() {
   return react__WEBPACK_IMPORTED_MODULE_4___default.a.createElement("div", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 154
+      lineNumber: 155
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_4___default.a.createElement("h1", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 155
+      lineNumber: 156
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_4___default.a.createElement("button", {
     type: "button",
+    "aria-label": "Title",
     className: titleStyles.className,
     onClick: function onClick() {
       if (setting !== Settings.CHANGE_RULES) {
@@ -13286,11 +13288,12 @@ var ConnectN = function ConnectN() {
     },
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 156
+      lineNumber: 157
     },
     __self: this
   }, titleStyles.styles)), setting === Settings.CHANGE_RULES ? react__WEBPACK_IMPORTED_MODULE_4___default.a.createElement("input", {
     ref: focusInput,
+    "aria-label": "change-rules-label",
     className: inputStyles.className,
     type: "text",
     placeholder: "[column],[row],[number]",
@@ -13330,22 +13333,24 @@ var ConnectN = function ConnectN() {
     },
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 169
+      lineNumber: 171
     },
     __self: this
   }) : react__WEBPACK_IMPORTED_MODULE_4___default.a.createElement("button", {
-    className: bannerStyles.className,
     type: "button",
+    "aria-label": "banner",
+    className: bannerStyles.className,
     onClick: function onClick() {
       return restartGame();
     },
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 202
+      lineNumber: 205
     },
     __self: this
   }, bannerStyles.styles), inputStyles.styles, setting === Settings.CHANGE_PLAYERS ? react__WEBPACK_IMPORTED_MODULE_4___default.a.createElement("input", {
     ref: focusInput,
+    "aria-label": "change-players-input",
     className: inputStyles.className,
     type: "text",
     placeholder: "up to 4 player's names with comma in between",
@@ -13378,18 +13383,19 @@ var ConnectN = function ConnectN() {
     },
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 208
+      lineNumber: 216
     },
     __self: this
   }) : react__WEBPACK_IMPORTED_MODULE_4___default.a.createElement("button", {
-    className: legendStyles.className,
     type: "button",
+    "aria-label": "legend",
+    className: legendStyles.className,
     onClick: function onClick() {
       return updateSetting(Settings.CHANGE_PLAYERS);
     },
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 237
+      lineNumber: 246
     },
     __self: this
   }, legendStyles.styles, names.map(function (n, ind) {
@@ -13398,14 +13404,14 @@ var ConnectN = function ConnectN() {
       key: "legend-".concat(n),
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 244
+        lineNumber: 254
       },
       __self: this
     }, legendLabelStyles.styles, react__WEBPACK_IMPORTED_MODULE_4___default.a.createElement("div", {
       className: "".concat(legendColorStyles.className, "\n                ").concat(_Board__WEBPACK_IMPORTED_MODULE_6__["playerCheckerStyles"][ind].className),
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 246
+        lineNumber: 256
       },
       __self: this
     }, _Board__WEBPACK_IMPORTED_MODULE_6__["playerCheckerStyles"][ind].styles, legendColorStyles.styles), n);
@@ -13415,7 +13421,7 @@ var ConnectN = function ConnectN() {
     onClickOnCell: handleClickOnCell,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 258
+      lineNumber: 268
     },
     __self: this
   }));
@@ -14008,7 +14014,7 @@ var transition = function transition() {
 
 /***/ }),
 
-/***/ 0:
+/***/ 1:
 /*!****************************************************************************************************************************************************!*\
   !*** multi next-client-pages-loader?page=%2F&absolutePagePath=%2FUsers%2Fdavid.chen%2FDocuments%2Fprojects%2FNextjs_Ts_Eslint%2Fpages%2Findex.tsx ***!
   \****************************************************************************************************************************************************/
@@ -14031,5 +14037,5 @@ module.exports = dll_1aef2d0bbc0d334d831c;
 
 /***/ })
 
-},[[0,"static/runtime/webpack.js"]]]);
+},[[1,"static/runtime/webpack.js"]]]);
 //# sourceMappingURL=index.js.map
