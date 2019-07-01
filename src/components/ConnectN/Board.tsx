@@ -87,9 +87,10 @@ const Board: React.FC<Props> = ({ rowNum, boards, onClickOnCell }) => {
       {boards[0].map((_c, colInd) =>
         Array.from(Array(rowNum), (_r, rowInd) => (
           <button
+            type="button"
+            aria-label="board"
             // eslint-disable-next-line react/no-array-index-key
             key={`cell-${colInd}-${rowInd}`}
-            type="button"
             className={`${cellStyles.className} ${cellGridPosStyles[colInd][rowInd].className}`}
             onClick={onClickOnCell(colInd)}
           >

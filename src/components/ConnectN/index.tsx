@@ -93,7 +93,8 @@ const inputStyles = css.resolve`
   font-size: ${rem(16)};
   outline: none;
   margin: ${rem(20)} auto;
-  max-width: ${rem(300)};
+  max-width: ${rem(350)};
+  border: ${rem(1)} solid gray;
   width: 100%;
 `;
 
@@ -155,6 +156,7 @@ const ConnectN: React.FC = () => {
       <h1>
         <button
           type="button"
+          aria-label="Title"
           className={titleStyles.className}
           onClick={() => {
             if (setting !== Settings.CHANGE_RULES) {
@@ -168,6 +170,7 @@ const ConnectN: React.FC = () => {
       {setting === Settings.CHANGE_RULES ? (
         <input
           ref={focusInput}
+          aria-label="change-rules-label"
           className={inputStyles.className}
           type="text"
           placeholder="[column],[row],[number]"
@@ -199,7 +202,12 @@ const ConnectN: React.FC = () => {
           }}
         />
       ) : (
-        <button className={bannerStyles.className} type="button" onClick={() => restartGame()}>
+        <button
+          type="button"
+          aria-label="banner"
+          className={bannerStyles.className}
+          onClick={() => restartGame()}
+        >
           {bannerStyles.styles}
         </button>
       )}
@@ -207,6 +215,7 @@ const ConnectN: React.FC = () => {
       {setting === Settings.CHANGE_PLAYERS ? (
         <input
           ref={focusInput}
+          aria-label="change-players-input"
           className={inputStyles.className}
           type="text"
           placeholder="up to 4 player's names with comma in between"
@@ -235,8 +244,9 @@ const ConnectN: React.FC = () => {
         />
       ) : (
         <button
-          className={legendStyles.className}
           type="button"
+          aria-label="legend"
+          className={legendStyles.className}
           onClick={() => updateSetting(Settings.CHANGE_PLAYERS)}
         >
           {legendStyles.styles}
