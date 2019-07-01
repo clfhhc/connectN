@@ -19,7 +19,8 @@ module.exports = withOffline(
 
     // service-worker settings
     generateInDevMode: true,
-    registerSwPrefix: '/static',
+    registerSwPrefix: `${prodAssetPrefix}/static/`,
+    scope: `${prodAssetPrefix}/`,
     workboxOpts: {
       swDest: 'static/service-worker.js',
       globPatterns: ['app/static/**/*'],
