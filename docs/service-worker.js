@@ -1,31 +1,31 @@
 self.__precacheManifest = [
   {
-    "url": "/connectN/_next/static/IA_3z9Lx2SAR1nzjLbdB0/pages/_app.js",
-    "revision": "32bc2ad8c0de4414d57e"
+    "url": "/connectN/_next/static/KwhW42K9E5we45OpOT1QU/pages/_app.js",
+    "revision": "16964e61477385b1b5f2"
   },
   {
-    "url": "/connectN/_next/static/IA_3z9Lx2SAR1nzjLbdB0/pages/_error.js",
-    "revision": "5d06b4c787fa61e29c9f"
+    "url": "/connectN/_next/static/KwhW42K9E5we45OpOT1QU/pages/_error.js",
+    "revision": "4c6598d689c523890b7d"
   },
   {
-    "url": "/connectN/_next/static/IA_3z9Lx2SAR1nzjLbdB0/pages/about.js",
-    "revision": "7f5577a58acbe129cc63"
+    "url": "/connectN/_next/static/KwhW42K9E5we45OpOT1QU/pages/about.js",
+    "revision": "93e4ea2cb539b21e5827"
   },
   {
-    "url": "/connectN/_next/static/IA_3z9Lx2SAR1nzjLbdB0/pages/index.js",
-    "revision": "b4999d04ad68b8501142"
+    "url": "/connectN/_next/static/KwhW42K9E5we45OpOT1QU/pages/index.js",
+    "revision": "710067b27d53fcf6c169"
   },
   {
-    "url": "/connectN/_next/static/IA_3z9Lx2SAR1nzjLbdB0/pages/loading.js",
-    "revision": "208112ea9e7c5a26bef8"
+    "url": "/connectN/_next/static/KwhW42K9E5we45OpOT1QU/pages/loading.js",
+    "revision": "8ffb1af296935e181739"
   },
   {
     "url": "/connectN/_next/static/chunks/commons.534aa6d02e011dba7c8c.js",
     "revision": "b7b072ae369c940c86f3"
   },
   {
-    "url": "/connectN/_next/static/runtime/main-c9b90ecaf9aac26230e5.js",
-    "revision": "17b9cc30dc39b4f79447"
+    "url": "/connectN/_next/static/runtime/main-b27e9113408fba08ef4c.js",
+    "revision": "edbe0026a93af48d0ffe"
   },
   {
     "url": "/connectN/_next/static/runtime/webpack-a79426b5e11f0ba5879d.js",

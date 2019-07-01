@@ -19,7 +19,7 @@ module.exports = withOffline(
 
     // service-worker settings
     registerSwPrefix: `${prodAssetPrefix}`,
-    scope: `${prodAssetPrefix}`,
+    scope: `${prodAssetPrefix}/`,
     workboxOpts: {
       swDest: 'service-worker.js',
       globPatterns: ['app/static/**/*'],
