@@ -24,7 +24,7 @@ module.exports = withOffline(
       swDest: 'static/service-worker.js',
       globPatterns: ['app/static/**/*'],
       globDirectory: '.',
-      modifyUrlPrefix: {
+      modifyURLPrefix: {
         app: isProd ? prodAssetPrefix : '',
       },
       runtimeCaching: [
