@@ -456,20 +456,20 @@ This is an example project setup with NextJs, Typescript, Eslint, Prettier, Jest
     //...
     ```
 39. import the `<ManifestHead>` in the page
-```
-//...
-import ManifestHead from '../src/components/Head/ManifestHead';
-import Link from '../src/components/Link';
+    ```
+    //...
+    import ManifestHead from '../src/components/Head/ManifestHead';
+    import Link from '../src/components/Link';
 
-//...
-    <ManifestHead
-      title="Connect N"
-      themeColor="red"
-      hrefPage="/"
-      favIconPath="/static/icons/favicon.ico"
-      appleIconPath="/static/icons/icon192x192.png"
-      hrefManifest="/static/manifest/manifest.json"
-    />
-//..
-```
+    //...
+        <ManifestHead
+          title="index"
+          themeColor="red"
+          hrefPage="/"
+          favIconPath="/static/icons/favicon.ico"
+          appleIconPath="/static/icons/icon192x192.png"
+          hrefManifest="/static/manifest/manifest.json"
+        />
+    //..
+    ```
 40. Make icons files (favicon.ico, icon*.png) available in the static folder
