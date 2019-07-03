@@ -9,6 +9,7 @@ const Page: NextSFC = () => (
       title="about"
       themeColor="#ffffff"
       hrefPage="/about"
+      favIconPath="/static/icons/favicon.ico"
       hrefManifest="/static/manifest/manifest.json"
     />
     <h1>About</h1>
