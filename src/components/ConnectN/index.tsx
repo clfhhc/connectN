@@ -42,6 +42,7 @@ const bannerStylesOnBanner = (banner: string) => css.resolve`
   cursor: pointer;
   border-top: ${rem(1)} solid transparent;
   border-bottom: ${rem(1)} solid transparent;
+  height: 100%;
 
   ::after {
     content: "${banner}";
@@ -66,6 +67,7 @@ const legendStyles = css.resolve`
   cursor: pointer;
   border-top: ${rem(1)} solid transparent;
   border-bottom: ${rem(1)} solid transparent;
+  height: 100%;
 
   :hover {
     border-top: ${rem(1)} solid black;
@@ -87,6 +89,10 @@ const legendColorStyles = css.resolve`
   height: ${rem(15)};
 `;
 
+const inputContainerStyles = css.resolve`
+  height: ${rem(25)};
+`;
+
 const inputStyles = css.resolve`
   display: block;
   text-align: center;
@@ -95,6 +101,7 @@ const inputStyles = css.resolve`
   margin: ${rem(20)} auto;
   max-width: ${rem(350)};
   border: ${rem(1)} solid gray;
+  height: 100%;
   width: 100%;
 `;
 
@@ -167,104 +174,113 @@ const ConnectN: React.FC = () => {
           {titleStyles.styles}
         </button>
       </h1>
-      {setting === Settings.CHANGE_RULES ? (
-        <input
-          ref={focusInput}
-          aria-label="change-rules-label"
-          className={inputStyles.className}
-          type="text"
-          placeholder="[column],[row],[number]"
-          value={inputText}
-          onChange={(e: React.ChangeEvent<HTMLInputElement>) => changeInputText(e.target.value)}
-          onKeyDown={(e: React.KeyboardEvent<HTMLInputElement>) => {
-            if (e.which === 13) {
-              try {
-                const inputArray = inputText.split(',').map(text => {
-                  const num = parseInt(text.trim(), 10);
-                  if (Number.isNaN(num)) throw new Error();
-                  return num;
-                });
-                if (inputArray.length !== 3) throw new Error();
-                dispatch({
-                  type: 'changeRules',
-                  payload: { rowNum: inputArray[1], colNum: inputArray[0], winRule: inputArray[2] },
-                });
-              } catch (err) {
-                console.log('invalid input');
+      <div className={inputContainerStyles.className}>
+        {setting === Settings.CHANGE_RULES ? (
+          <input
+            ref={focusInput}
+            aria-label="change-rules-label"
+            className={inputStyles.className}
+            type="text"
+            placeholder="[column],[row],[number]"
+            value={inputText}
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) => changeInputText(e.target.value)}
+            onKeyDown={(e: React.KeyboardEvent<HTMLInputElement>) => {
+              if (e.which === 13) {
+                try {
+                  const inputArray = inputText.split(',').map(text => {
+                    const num = parseInt(text.trim(), 10);
+                    if (Number.isNaN(num)) throw new Error();
+                    return num;
+                  });
+                  if (inputArray.length !== 3) throw new Error();
+                  dispatch({
+                    type: 'changeRules',
+                    payload: {
+                      rowNum: inputArray[1],
+                      colNum: inputArray[0],
+                      winRule: inputArray[2],
+                    },
+                  });
+                } catch (err) {
+                  console.log('invalid input');
+                }
+                clearSetting();
+              } else if (e.keyCode === 27) {
+                clearSetting();
               }
+            }}
+            onBlur={() => {
               clearSetting();
-            } else if (e.keyCode === 27) {
-              clearSetting();
-            }
-          }}
-          onBlur={() => {
-            clearSetting();
-          }}
-        />
-      ) : (
-        <button
-          type="button"
-          aria-label="banner"
-          className={bannerStyles.className}
-          onClick={() => restartGame()}
-        >
-          {bannerStyles.styles}
-        </button>
-      )}
+            }}
+          />
+        ) : (
+          <button
+            type="button"
+            aria-label="banner"
+            className={bannerStyles.className}
+            onClick={() => restartGame()}
+          >
+            {bannerStyles.styles}
+          </button>
+        )}
+      </div>
       {inputStyles.styles}
-      {setting === Settings.CHANGE_PLAYERS ? (
-        <input
-          ref={focusInput}
-          aria-label="change-players-input"
-          className={inputStyles.className}
-          type="text"
-          placeholder="up to 4 player's names with comma in between"
-          value={inputText}
-          onChange={(e: React.ChangeEvent<HTMLInputElement>) => changeInputText(e.target.value)}
-          onKeyDown={(e: React.KeyboardEvent<HTMLInputElement>) => {
-            if (e.which === 13) {
-              try {
-                const inputArray = inputText.split(',').map(text => text.trim());
-                if (inputArray.length < 1 || inputArray.length > 4) throw new Error();
-                dispatch({
-                  type: 'changePlayers',
-                  payload: inputArray,
-                });
-              } catch (err) {
-                console.log('invalid input');
+      {inputContainerStyles.styles}
+      <div className={inputContainerStyles.className}>
+        {setting === Settings.CHANGE_PLAYERS ? (
+          <input
+            ref={focusInput}
+            aria-label="change-players-input"
+            className={inputStyles.className}
+            type="text"
+            placeholder="up to 4 player's names with comma in between"
+            value={inputText}
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) => changeInputText(e.target.value)}
+            onKeyDown={(e: React.KeyboardEvent<HTMLInputElement>) => {
+              if (e.which === 13) {
+                try {
+                  const inputArray = inputText.split(',').map(text => text.trim());
+                  if (inputArray.length < 1 || inputArray.length > 4) throw new Error();
+                  dispatch({
+                    type: 'changePlayers',
+                    payload: inputArray,
+                  });
+                } catch (err) {
+                  console.log('invalid input');
+                }
+                clearSetting();
+              } else if (e.keyCode === 27) {
+                clearSetting();
               }
+            }}
+            onBlur={() => {
               clearSetting();
-            } else if (e.keyCode === 27) {
-              clearSetting();
-            }
-          }}
-          onBlur={() => {
-            clearSetting();
-          }}
-        />
-      ) : (
-        <button
-          type="button"
-          aria-label="legend"
-          className={legendStyles.className}
-          onClick={() => updateSetting(Settings.CHANGE_PLAYERS)}
-        >
-          {legendStyles.styles}
-          {names.map((n, ind) => (
-            <div className={legendLabelStyles.className} key={`legend-${n}`}>
-              {legendLabelStyles.styles}
-              <div
-                className={`${legendColorStyles.className}
-                ${playerCheckerStyles[ind].className}`}
-              >
-                {playerCheckerStyles[ind].styles}
-                {legendColorStyles.styles}
+            }}
+          />
+        ) : (
+          <button
+            type="button"
+            aria-label="legend"
+            className={legendStyles.className}
+            onClick={() => updateSetting(Settings.CHANGE_PLAYERS)}
+          >
+            {legendStyles.styles}
+            {names.map((n, ind) => (
+              <div className={legendLabelStyles.className} key={`legend-${n}`}>
+                {legendLabelStyles.styles}
+                <div
+                  className={`${legendColorStyles.className}
+                  ${playerCheckerStyles[ind].className}`}
+                >
+                  {playerCheckerStyles[ind].styles}
+                  {legendColorStyles.styles}
+                </div>
+                {n}
               </div>
-              {n}
-            </div>
-          ))}
-        </button>
-      )}
+            ))}
+          </button>
+        )}
+      </div>
       <Board boards={gameRecord.boards} rowNum={rowNum} onClickOnCell={handleClickOnCell} />
     </div>
   );

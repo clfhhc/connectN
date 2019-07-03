@@ -12968,9 +12968,11 @@ var Page = function Page() {
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_src_components_Head_ManifestHead__WEBPACK_IMPORTED_MODULE_1__["default"], {
     title: "Connect N",
-    themeColor: "#ffffff",
+    themeColor: "red",
     hrefPage: "/",
-    hrefManifest: "/static/mainfest/mainfest.json",
+    favIconPath: "/static/icons/favicon.ico",
+    appleIconPath: "/static/icons/icon192x192.png",
+    hrefManifest: "/static/manifest/manifest.json",
     __source: {
       fileName: _jsxFileName,
       lineNumber: 9
@@ -12979,26 +12981,26 @@ var Page = function Page() {
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_src_components_ConnectN__WEBPACK_IMPORTED_MODULE_3__["default"], {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 15
+      lineNumber: 17
     },
     __self: this
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 16
+      lineNumber: 18
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_src_components_Link__WEBPACK_IMPORTED_MODULE_2__["default"], {
     href: "/about",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 17
+      lineNumber: 19
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 18
+      lineNumber: 20
     },
     __self: this
   }, "About"))));
@@ -13201,20 +13203,20 @@ var titleStylesOnN = function titleStylesOnN(setting, winRule) {
 var bannerStylesOnBanner = function bannerStylesOnBanner(banner) {
   return {
     styles: react__WEBPACK_IMPORTED_MODULE_4___default.a.createElement(styled_jsx_style__WEBPACK_IMPORTED_MODULE_3___default.a, {
-      id: "2746256327",
+      id: "1144580068",
       dynamic: [Object(_utils_styleUtils__WEBPACK_IMPORTED_MODULE_9__["rem"])(20), Object(_utils_styleUtils__WEBPACK_IMPORTED_MODULE_9__["rem"])(20), Object(_utils_styleUtils__WEBPACK_IMPORTED_MODULE_9__["rem"])(1), Object(_utils_styleUtils__WEBPACK_IMPORTED_MODULE_9__["rem"])(1), banner, Object(_utils_styleUtils__WEBPACK_IMPORTED_MODULE_9__["rem"])(1), Object(_utils_styleUtils__WEBPACK_IMPORTED_MODULE_9__["rem"])(1)],
       __self: this
-    }, ".__jsx-style-dynamic-selector{display:block;text-align:center;margin:".concat(Object(_utils_styleUtils__WEBPACK_IMPORTED_MODULE_9__["rem"])(20), " auto;font-size:").concat(Object(_utils_styleUtils__WEBPACK_IMPORTED_MODULE_9__["rem"])(20), ";cursor:pointer;border-top:").concat(Object(_utils_styleUtils__WEBPACK_IMPORTED_MODULE_9__["rem"])(1), " solid transparent;border-bottom:").concat(Object(_utils_styleUtils__WEBPACK_IMPORTED_MODULE_9__["rem"])(1), " solid transparent;}.__jsx-style-dynamic-selector::after{content:\"").concat(banner, "\";}.__jsx-style-dynamic-selector:hover{border-top:").concat(Object(_utils_styleUtils__WEBPACK_IMPORTED_MODULE_9__["rem"])(1), " solid black;border-bottom:").concat(Object(_utils_styleUtils__WEBPACK_IMPORTED_MODULE_9__["rem"])(1), " solid black;}.__jsx-style-dynamic-selector:hover::after{content:'Restart Game';}")),
-    className: styled_jsx_style__WEBPACK_IMPORTED_MODULE_3___default.a.dynamic([["2746256327", [Object(_utils_styleUtils__WEBPACK_IMPORTED_MODULE_9__["rem"])(20), Object(_utils_styleUtils__WEBPACK_IMPORTED_MODULE_9__["rem"])(20), Object(_utils_styleUtils__WEBPACK_IMPORTED_MODULE_9__["rem"])(1), Object(_utils_styleUtils__WEBPACK_IMPORTED_MODULE_9__["rem"])(1), banner, Object(_utils_styleUtils__WEBPACK_IMPORTED_MODULE_9__["rem"])(1), Object(_utils_styleUtils__WEBPACK_IMPORTED_MODULE_9__["rem"])(1)]]])
+    }, ".__jsx-style-dynamic-selector{display:block;text-align:center;margin:".concat(Object(_utils_styleUtils__WEBPACK_IMPORTED_MODULE_9__["rem"])(20), " auto;font-size:").concat(Object(_utils_styleUtils__WEBPACK_IMPORTED_MODULE_9__["rem"])(20), ";cursor:pointer;border-top:").concat(Object(_utils_styleUtils__WEBPACK_IMPORTED_MODULE_9__["rem"])(1), " solid transparent;border-bottom:").concat(Object(_utils_styleUtils__WEBPACK_IMPORTED_MODULE_9__["rem"])(1), " solid transparent;height:100%;}.__jsx-style-dynamic-selector::after{content:\"").concat(banner, "\";}.__jsx-style-dynamic-selector:hover{border-top:").concat(Object(_utils_styleUtils__WEBPACK_IMPORTED_MODULE_9__["rem"])(1), " solid black;border-bottom:").concat(Object(_utils_styleUtils__WEBPACK_IMPORTED_MODULE_9__["rem"])(1), " solid black;}.__jsx-style-dynamic-selector:hover::after{content:'Restart Game';}")),
+    className: styled_jsx_style__WEBPACK_IMPORTED_MODULE_3___default.a.dynamic([["1144580068", [Object(_utils_styleUtils__WEBPACK_IMPORTED_MODULE_9__["rem"])(20), Object(_utils_styleUtils__WEBPACK_IMPORTED_MODULE_9__["rem"])(20), Object(_utils_styleUtils__WEBPACK_IMPORTED_MODULE_9__["rem"])(1), Object(_utils_styleUtils__WEBPACK_IMPORTED_MODULE_9__["rem"])(1), banner, Object(_utils_styleUtils__WEBPACK_IMPORTED_MODULE_9__["rem"])(1), Object(_utils_styleUtils__WEBPACK_IMPORTED_MODULE_9__["rem"])(1)]]])
   };
 };
 
 var legendStyles = {
   styles: react__WEBPACK_IMPORTED_MODULE_4___default.a.createElement(styled_jsx_style__WEBPACK_IMPORTED_MODULE_3___default.a, {
-    id: "95139721",
+    id: "1423670017",
     __self: undefined
-  }, ".jsx-95139721{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-flow:row wrap;-ms-flex-flow:row wrap;flex-flow:row wrap;margin:".concat(Object(_utils_styleUtils__WEBPACK_IMPORTED_MODULE_9__["rem"])(20), " auto;font-size:").concat(Object(_utils_styleUtils__WEBPACK_IMPORTED_MODULE_9__["rem"])(20), ";-webkit-box-pack:center;-webkit-justify-content:center;-ms-flex-pack:center;justify-content:center;cursor:pointer;border-top:").concat(Object(_utils_styleUtils__WEBPACK_IMPORTED_MODULE_9__["rem"])(1), " solid transparent;border-bottom:").concat(Object(_utils_styleUtils__WEBPACK_IMPORTED_MODULE_9__["rem"])(1), " solid transparent;}.jsx-95139721:hover{border-top:").concat(Object(_utils_styleUtils__WEBPACK_IMPORTED_MODULE_9__["rem"])(1), " solid black;border-bottom:").concat(Object(_utils_styleUtils__WEBPACK_IMPORTED_MODULE_9__["rem"])(1), " solid black;}")),
-  className: "jsx-95139721"
+  }, ".jsx-1423670017{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-flow:row wrap;-ms-flex-flow:row wrap;flex-flow:row wrap;margin:".concat(Object(_utils_styleUtils__WEBPACK_IMPORTED_MODULE_9__["rem"])(20), " auto;font-size:").concat(Object(_utils_styleUtils__WEBPACK_IMPORTED_MODULE_9__["rem"])(20), ";-webkit-box-pack:center;-webkit-justify-content:center;-ms-flex-pack:center;justify-content:center;cursor:pointer;border-top:").concat(Object(_utils_styleUtils__WEBPACK_IMPORTED_MODULE_9__["rem"])(1), " solid transparent;border-bottom:").concat(Object(_utils_styleUtils__WEBPACK_IMPORTED_MODULE_9__["rem"])(1), " solid transparent;height:100%;}.jsx-1423670017:hover{border-top:").concat(Object(_utils_styleUtils__WEBPACK_IMPORTED_MODULE_9__["rem"])(1), " solid black;border-bottom:").concat(Object(_utils_styleUtils__WEBPACK_IMPORTED_MODULE_9__["rem"])(1), " solid black;}")),
+  className: "jsx-1423670017"
 };
 var legendLabelStyles = {
   styles: react__WEBPACK_IMPORTED_MODULE_4___default.a.createElement(styled_jsx_style__WEBPACK_IMPORTED_MODULE_3___default.a, {
@@ -13230,12 +13232,19 @@ var legendColorStyles = {
   }, ".jsx-3166081097{display:inline-block;border:".concat(Object(_utils_styleUtils__WEBPACK_IMPORTED_MODULE_9__["rem"])(1), " solid lightgray;border-radius:50%;margin:0 ").concat(Object(_utils_styleUtils__WEBPACK_IMPORTED_MODULE_9__["rem"])(10), ";width:").concat(Object(_utils_styleUtils__WEBPACK_IMPORTED_MODULE_9__["rem"])(15), ";height:").concat(Object(_utils_styleUtils__WEBPACK_IMPORTED_MODULE_9__["rem"])(15), ";}")),
   className: "jsx-3166081097"
 };
+var inputContainerStyles = {
+  styles: react__WEBPACK_IMPORTED_MODULE_4___default.a.createElement(styled_jsx_style__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    id: "1920883996",
+    __self: undefined
+  }, ".jsx-1920883996{height:".concat(Object(_utils_styleUtils__WEBPACK_IMPORTED_MODULE_9__["rem"])(25), ";}")),
+  className: "jsx-1920883996"
+};
 var inputStyles = {
   styles: react__WEBPACK_IMPORTED_MODULE_4___default.a.createElement(styled_jsx_style__WEBPACK_IMPORTED_MODULE_3___default.a, {
-    id: "291324850",
+    id: "3055687915",
     __self: undefined
-  }, ".jsx-291324850{display:block;text-align:center;font-size:".concat(Object(_utils_styleUtils__WEBPACK_IMPORTED_MODULE_9__["rem"])(16), ";outline:none;margin:").concat(Object(_utils_styleUtils__WEBPACK_IMPORTED_MODULE_9__["rem"])(20), " auto;max-width:").concat(Object(_utils_styleUtils__WEBPACK_IMPORTED_MODULE_9__["rem"])(350), ";border:").concat(Object(_utils_styleUtils__WEBPACK_IMPORTED_MODULE_9__["rem"])(1), " solid gray;width:100%;}")),
-  className: "jsx-291324850"
+  }, ".jsx-3055687915{display:block;text-align:center;font-size:".concat(Object(_utils_styleUtils__WEBPACK_IMPORTED_MODULE_9__["rem"])(16), ";outline:none;margin:").concat(Object(_utils_styleUtils__WEBPACK_IMPORTED_MODULE_9__["rem"])(20), " auto;max-width:").concat(Object(_utils_styleUtils__WEBPACK_IMPORTED_MODULE_9__["rem"])(350), ";border:").concat(Object(_utils_styleUtils__WEBPACK_IMPORTED_MODULE_9__["rem"])(1), " solid gray;height:100%;width:100%;}")),
+  className: "jsx-3055687915"
 };
 
 var ConnectN = function ConnectN() {
@@ -13307,13 +13316,13 @@ var ConnectN = function ConnectN() {
   return react__WEBPACK_IMPORTED_MODULE_4___default.a.createElement("div", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 155
+      lineNumber: 162
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_4___default.a.createElement("h1", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 156
+      lineNumber: 163
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_4___default.a.createElement("button", {
@@ -13327,10 +13336,17 @@ var ConnectN = function ConnectN() {
     },
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 157
+      lineNumber: 164
     },
     __self: this
-  }, titleStyles.styles)), setting === Settings.CHANGE_RULES ? react__WEBPACK_IMPORTED_MODULE_4___default.a.createElement("input", {
+  }, titleStyles.styles)), react__WEBPACK_IMPORTED_MODULE_4___default.a.createElement("div", {
+    className: inputContainerStyles.className,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 177
+    },
+    __self: this
+  }, setting === Settings.CHANGE_RULES ? react__WEBPACK_IMPORTED_MODULE_4___default.a.createElement("input", {
     ref: focusInput,
     "aria-label": "change-rules-label",
     className: inputStyles.className,
@@ -13372,7 +13388,7 @@ var ConnectN = function ConnectN() {
     },
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 171
+      lineNumber: 179
     },
     __self: this
   }) : react__WEBPACK_IMPORTED_MODULE_4___default.a.createElement("button", {
@@ -13384,10 +13400,17 @@ var ConnectN = function ConnectN() {
     },
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 205
+      lineNumber: 217
     },
     __self: this
-  }, bannerStyles.styles), inputStyles.styles, setting === Settings.CHANGE_PLAYERS ? react__WEBPACK_IMPORTED_MODULE_4___default.a.createElement("input", {
+  }, bannerStyles.styles)), inputStyles.styles, inputContainerStyles.styles, react__WEBPACK_IMPORTED_MODULE_4___default.a.createElement("div", {
+    className: inputContainerStyles.className,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 229
+    },
+    __self: this
+  }, setting === Settings.CHANGE_PLAYERS ? react__WEBPACK_IMPORTED_MODULE_4___default.a.createElement("input", {
     ref: focusInput,
     "aria-label": "change-players-input",
     className: inputStyles.className,
@@ -13422,7 +13445,7 @@ var ConnectN = function ConnectN() {
     },
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 216
+      lineNumber: 231
     },
     __self: this
   }) : react__WEBPACK_IMPORTED_MODULE_4___default.a.createElement("button", {
@@ -13434,7 +13457,7 @@ var ConnectN = function ConnectN() {
     },
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 246
+      lineNumber: 261
     },
     __self: this
   }, legendStyles.styles, names.map(function (n, ind) {
@@ -13443,24 +13466,24 @@ var ConnectN = function ConnectN() {
       key: "legend-".concat(n),
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 254
+        lineNumber: 269
       },
       __self: this
     }, legendLabelStyles.styles, react__WEBPACK_IMPORTED_MODULE_4___default.a.createElement("div", {
-      className: "".concat(legendColorStyles.className, "\n                ").concat(_Board__WEBPACK_IMPORTED_MODULE_6__["playerCheckerStyles"][ind].className),
+      className: "".concat(legendColorStyles.className, "\n                  ").concat(_Board__WEBPACK_IMPORTED_MODULE_6__["playerCheckerStyles"][ind].className),
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 256
+        lineNumber: 271
       },
       __self: this
     }, _Board__WEBPACK_IMPORTED_MODULE_6__["playerCheckerStyles"][ind].styles, legendColorStyles.styles), n);
-  })), react__WEBPACK_IMPORTED_MODULE_4___default.a.createElement(_Board__WEBPACK_IMPORTED_MODULE_6__["default"], {
+  }))), react__WEBPACK_IMPORTED_MODULE_4___default.a.createElement(_Board__WEBPACK_IMPORTED_MODULE_6__["default"], {
     boards: gameRecord.boards,
     rowNum: rowNum,
     onClickOnCell: handleClickOnCell,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 268
+      lineNumber: 284
     },
     __self: this
   }));
@@ -13504,37 +13527,39 @@ var Head = function Head(_ref) {
       hrefManifest = _ref.hrefManifest,
       viewportScale = _ref.viewportScale,
       themeColor = _ref.themeColor,
+      favIconPath = _ref.favIconPath,
       _ref$keywords = _ref.keywords,
       keywords = _ref$keywords === void 0 ? title : _ref$keywords,
       refresh = _ref.refresh,
+      appleIconPath = _ref.appleIconPath,
+      _ref$appleIconSize = _ref.appleIconSize,
+      appleIconSize = _ref$appleIconSize === void 0 ? '192x192' : _ref$appleIconSize,
       children = _ref.children;
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_head__WEBPACK_IMPORTED_MODULE_1___default.a, {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 32
+      lineNumber: 38
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("title", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 33
+      lineNumber: 39
     },
     __self: this
   }, title), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("meta", {
     charSet: charset,
-    key: "charset",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 34
+      lineNumber: 40
     },
     __self: this
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("meta", {
     name: "description",
     content: description,
-    key: "description",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 35
+      lineNumber: 41
     },
     __self: this
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Link__WEBPACK_IMPORTED_MODULE_3__["default"], {
@@ -13542,7 +13567,7 @@ var Head = function Head(_ref) {
     passHref: true,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 36
+      lineNumber: 42
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_manifest_manifest__WEBPACK_IMPORTED_MODULE_2___default.a, {
@@ -13550,7 +13575,7 @@ var Head = function Head(_ref) {
     initialScale: viewportScale,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 37
+      lineNumber: 43
     },
     __self: this
   })), hrefPage && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Link__WEBPACK_IMPORTED_MODULE_3__["default"], {
@@ -13558,41 +13583,110 @@ var Head = function Head(_ref) {
     passHref: true,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 40
+      lineNumber: 46
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("link", {
     rel: "canonical",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 41
+      lineNumber: 47
+    },
+    __self: this
+  })), favIconPath && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Link__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    href: favIconPath,
+    passHref: true,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 51
+    },
+    __self: this
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("link", {
+    rel: "shortcut icon",
+    type: "image/x-icon",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 52
     },
     __self: this
   })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("meta", {
     name: "keywords",
     content: keywords,
-    key: "keywords",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 44
+      lineNumber: 55
     },
     __self: this
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("meta", {
     httpEquiv: "X-UA-Compatible",
     content: "ie=edge",
-    key: "UA-compatible",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 45
+      lineNumber: 56
     },
     __self: this
   }), refresh && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("meta", {
     httpEquiv: "refresh",
     content: "".concat(refresh),
-    key: "refresh",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 46
+      lineNumber: 57
+    },
+    __self: this
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("meta", {
+    name: "apple-mobile-web-app-capable",
+    content: "yes",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 60
+    },
+    __self: this
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("meta", {
+    name: "apple-mobile-web-app-status-bar-style",
+    content: "blue",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 61
+    },
+    __self: this
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("meta", {
+    name: "apple-mobile-web-app-title",
+    content: "With Manifest",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 62
+    },
+    __self: this
+  }), appleIconPath && appleIconSize && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Link__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    href: appleIconPath,
+    passHref: true,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 65
+    },
+    __self: this
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("link", {
+    rel: "apple-touch-icon",
+    sizes: appleIconSize,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 66
+    },
+    __self: this
+  })), appleIconPath && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("meta", {
+    name: "msapplication-TitleImage",
+    content: "".concat(_Link__WEBPACK_IMPORTED_MODULE_3__["linkPrefix"]).concat(appleIconPath),
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 72
+    },
+    __self: this
+  }), themeColor && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("meta", {
+    name: "msapplication-TitleColor",
+    content: themeColor,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 74
     },
     __self: this
   }), children);
@@ -13606,11 +13700,12 @@ var Head = function Head(_ref) {
 /*!***************************************!*\
   !*** ./src/components/Link/index.tsx ***!
   \***************************************/
-/*! exports provided: default */
+/*! exports provided: linkPrefix, default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "linkPrefix", function() { return linkPrefix; });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var next_server_config__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! next-server/config */ "./node_modules/next-server/config.js");
@@ -13626,6 +13721,7 @@ var _getConfig = next_server_config__WEBPACK_IMPORTED_MODULE_1___default()(),
     publicRuntimeConfig = _getConfig.publicRuntimeConfig;
 
 var linkPrefix = publicRuntimeConfig.linkPrefix;
+
 
 var PrefixedLink = function PrefixedLink(_ref) {
   var href = _ref.href,
