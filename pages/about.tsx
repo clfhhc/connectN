@@ -9,7 +9,7 @@ const Page: NextSFC = () => (
       title="about"
       themeColor="#ffffff"
       hrefPage="/about"
-      hrefManifest="/static/mainfest/mainfest.json"
+      hrefManifest="/static/manifest/manifest.json"
     />
     <h1>About</h1>
     <p>Connect N is using bitwise to check winning condition.</p>

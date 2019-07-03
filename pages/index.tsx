@@ -10,7 +10,7 @@ const Page: NextFC<{}, {}, NextContext> = () => (
       title="Connect N"
       themeColor="#ffffff"
       hrefPage="/"
-      hrefManifest="/static/mainfest/mainfest.json"
+      hrefManifest="/static/manifest/manifest.json"
     />
     <ConnectN />
     <p>
