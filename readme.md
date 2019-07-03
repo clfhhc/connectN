@@ -262,6 +262,7 @@ This is an example project setup with NextJs, Typescript, Eslint, Prettier, Jest
 
 ### [Deploy to Github Pages](https://github.com/zeit/next.js/issues/3335#issuecomment-489354854)
 (deploy to /docs intead of using gh-pages branch)
+
 30. create `assetPrefix` and `linkPrefix` in config
     ```
     // ...
