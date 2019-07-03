@@ -8,9 +8,10 @@ const Page: NextFC<{}, {}, NextContext> = () => (
   <div>
     <ManifestHead
       title="Connect N"
-      themeColor="#ffffff"
+      themeColor="red"
       hrefPage="/"
       favIconPath="/static/icons/favicon.ico"
+      appleIconPath="/static/icons/icon192x192.png"
       hrefManifest="/static/manifest/manifest.json"
     />
     <ConnectN />

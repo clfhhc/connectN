@@ -7,9 +7,10 @@ const Page: NextSFC = () => (
   <div>
     <ManifestHead
       title="about"
-      themeColor="#ffffff"
+      themeColor="red"
       hrefPage="/about"
       favIconPath="/static/icons/favicon.ico"
+      appleIconPath="/static/icons/icon192x192.png"
       hrefManifest="/static/manifest/manifest.json"
     />
     <h1>About</h1>
