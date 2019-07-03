@@ -84,7 +84,7 @@ const legendColorStyles = css.resolve`
   display: inline-block;
   border: ${rem(1)} solid lightgray;
   border-radius: 50%;
-  margin: 0 ${rem(10)};
+  margin: 0 ${rem(10)} 0 0;
   width: ${rem(15)};
   height: ${rem(15)};
 `;
