@@ -6259,6 +6259,43 @@ var finishDraft = immer.finishDraft.bind(immer);
 
 /***/ }),
 
+/***/ "./node_modules/next-manifest/manifest.js":
+/*!************************************************!*\
+  !*** ./node_modules/next-manifest/manifest.js ***!
+  \************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+const {createElement} = __webpack_require__(/*! react */ "./node_modules/react/index.js")
+
+const Manifest = ({
+  href = '/static/manifest/manifest.json',
+  themeColor = '#FFFFFF',
+  initialScale = '1'
+}) => {
+  const head = [
+    createElement('meta', {
+      name: "viewport",
+      content: "width=device-width",
+      "initial-scale": initialScale
+    }),
+    createElement('meta', {
+      name: "theme-color",
+      content: themeColor
+    }),
+    createElement('link', {
+    rel: "manifest",
+    href: href
+  })]
+
+  return head
+}
+
+module.exports = Manifest
+
+
+/***/ }),
+
 /***/ "./node_modules/next-server/config.js":
 /*!********************************************!*\
   !*** ./node_modules/next-server/config.js ***!
@@ -12913,7 +12950,7 @@ module.exports = function(module) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _src_components_Head__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../src/components/Head */ "./src/components/Head/index.tsx");
+/* harmony import */ var _src_components_Head_ManifestHead__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../src/components/Head/ManifestHead */ "./src/components/Head/ManifestHead.tsx");
 /* harmony import */ var _src_components_Link__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../src/components/Link */ "./src/components/Link/index.tsx");
 /* harmony import */ var _src_components_ConnectN__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../src/components/ConnectN */ "./src/components/ConnectN/index.tsx");
 var _jsxFileName = "/Users/david.chen/Documents/projects/Nextjs_Ts_Eslint/pages/index.tsx";
@@ -12929,52 +12966,39 @@ var Page = function Page() {
       lineNumber: 8
     },
     __self: this
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_src_components_Head__WEBPACK_IMPORTED_MODULE_1__["default"], {
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_src_components_Head_ManifestHead__WEBPACK_IMPORTED_MODULE_1__["default"], {
     title: "Connect N",
-    themeColor: "white",
+    themeColor: "#ffffff",
+    hrefPage: "/",
+    hrefManifest: "/static/mainfest/mainfest.json",
     __source: {
       fileName: _jsxFileName,
       lineNumber: 9
     },
     __self: this
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_src_components_Link__WEBPACK_IMPORTED_MODULE_2__["default"], {
-    href: "/",
-    passHref: true,
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_src_components_ConnectN__WEBPACK_IMPORTED_MODULE_3__["default"], {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 10
-    },
-    __self: this
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("link", {
-    rel: "canonical",
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 11
-    },
-    __self: this
-  }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_src_components_ConnectN__WEBPACK_IMPORTED_MODULE_3__["default"], {
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 14
+      lineNumber: 15
     },
     __self: this
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 15
+      lineNumber: 16
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_src_components_Link__WEBPACK_IMPORTED_MODULE_2__["default"], {
     href: "/about",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 16
+      lineNumber: 17
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 17
+      lineNumber: 18
     },
     __self: this
   }, "About"))));
@@ -13446,10 +13470,10 @@ var ConnectN = function ConnectN() {
 
 /***/ }),
 
-/***/ "./src/components/Head/index.tsx":
-/*!***************************************!*\
-  !*** ./src/components/Head/index.tsx ***!
-  \***************************************/
+/***/ "./src/components/Head/ManifestHead.tsx":
+/*!**********************************************!*\
+  !*** ./src/components/Head/ManifestHead.tsx ***!
+  \**********************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -13459,7 +13483,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var next_head__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! next/head */ "./node_modules/next-server/dist/lib/head.js");
 /* harmony import */ var next_head__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(next_head__WEBPACK_IMPORTED_MODULE_1__);
-var _jsxFileName = "/Users/david.chen/Documents/projects/Nextjs_Ts_Eslint/src/components/Head/index.tsx";
+/* harmony import */ var next_manifest_manifest__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! next-manifest/manifest */ "./node_modules/next-manifest/manifest.js");
+/* harmony import */ var next_manifest_manifest__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(next_manifest_manifest__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _Link__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../Link */ "./src/components/Link/index.tsx");
+var _jsxFileName = "/Users/david.chen/Documents/projects/Nextjs_Ts_Eslint/src/components/Head/ManifestHead.tsx";
+
+ // @ts-ignore
+
 
 
 
@@ -13470,23 +13500,24 @@ var Head = function Head(_ref) {
       description = _ref$description === void 0 ? title : _ref$description,
       _ref$charset = _ref.charset,
       charset = _ref$charset === void 0 ? 'utf-8' : _ref$charset,
-      _ref$viewportScale = _ref.viewportScale,
-      viewportScale = _ref$viewportScale === void 0 ? 1.0 : _ref$viewportScale,
+      hrefPage = _ref.hrefPage,
+      hrefManifest = _ref.hrefManifest,
+      viewportScale = _ref.viewportScale,
+      themeColor = _ref.themeColor,
       _ref$keywords = _ref.keywords,
       keywords = _ref$keywords === void 0 ? title : _ref$keywords,
       refresh = _ref.refresh,
-      themeColor = _ref.themeColor,
       children = _ref.children;
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_head__WEBPACK_IMPORTED_MODULE_1___default.a, {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 25
+      lineNumber: 32
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("title", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 26
+      lineNumber: 33
     },
     __self: this
   }, title), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("meta", {
@@ -13494,7 +13525,7 @@ var Head = function Head(_ref) {
     key: "charset",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 27
+      lineNumber: 34
     },
     __self: this
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("meta", {
@@ -13503,25 +13534,47 @@ var Head = function Head(_ref) {
     key: "description",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 28
+      lineNumber: 35
     },
     __self: this
-  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("meta", {
-    name: "viewport",
-    content: "width=device-width,minimum-scale=1,initial-scale=".concat(viewportScale),
-    key: "viewport",
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Link__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    href: hrefManifest,
+    passHref: true,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 29
+      lineNumber: 36
     },
     __self: this
-  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("meta", {
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_manifest_manifest__WEBPACK_IMPORTED_MODULE_2___default.a, {
+    themeColor: themeColor,
+    initialScale: viewportScale,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 37
+    },
+    __self: this
+  })), hrefPage && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Link__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    href: hrefPage,
+    passHref: true,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 40
+    },
+    __self: this
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("link", {
+    rel: "canonical",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 41
+    },
+    __self: this
+  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("meta", {
     name: "keywords",
     content: keywords,
     key: "keywords",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 34
+      lineNumber: 44
     },
     __self: this
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("meta", {
@@ -13530,7 +13583,7 @@ var Head = function Head(_ref) {
     key: "UA-compatible",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 35
+      lineNumber: 45
     },
     __self: this
   }), refresh && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("meta", {
@@ -13539,16 +13592,7 @@ var Head = function Head(_ref) {
     key: "refresh",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 36
-    },
-    __self: this
-  }), themeColor && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("meta", {
-    name: "theme-color",
-    content: themeColor,
-    key: "theme-color",
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 37
+      lineNumber: 46
     },
     __self: this
   }), children);

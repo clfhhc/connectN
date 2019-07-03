@@ -68,6 +68,7 @@ module.exports = withManifest(
         display: 'standalone',
         scope: `${prodAssetPrefix}/`,
         theme_color: '#ffffff',
+        icons: false,
         /* eslint-enable @typescript-eslint/camelcase */
       },
 
