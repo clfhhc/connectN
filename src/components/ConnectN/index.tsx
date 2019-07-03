@@ -160,6 +160,13 @@ const ConnectN: React.FC = () => {
 
   return (
     <div>
+      <style jsx global>
+        {`
+          body {
+            touch-action: manipulation;
+          }
+        `}
+      </style>
       <h1>
         <button
           type="button"
