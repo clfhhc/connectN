@@ -1,23 +1,23 @@
 self.__precacheManifest = [
   {
-    "url": "/connectN/_next/static/UrbT-JDtpWW7Gl-dOmZb4/pages/_app.js",
-    "revision": "27df323f000d62e7b930"
+    "url": "/connectN/_next/static/C7N3EJZEh3_6Kg_7kJQiX/pages/_app.js",
+    "revision": "797ecda003d1a8dd0532"
   },
   {
-    "url": "/connectN/_next/static/UrbT-JDtpWW7Gl-dOmZb4/pages/_error.js",
-    "revision": "0dd8a6b629a07a7bd912"
+    "url": "/connectN/_next/static/C7N3EJZEh3_6Kg_7kJQiX/pages/_error.js",
+    "revision": "5946f9d9fcbbeb69b072"
   },
   {
-    "url": "/connectN/_next/static/UrbT-JDtpWW7Gl-dOmZb4/pages/about.js",
-    "revision": "090b269d6100734a84b2"
+    "url": "/connectN/_next/static/C7N3EJZEh3_6Kg_7kJQiX/pages/about.js",
+    "revision": "2761e19e179ff760ea81"
   },
   {
-    "url": "/connectN/_next/static/UrbT-JDtpWW7Gl-dOmZb4/pages/index.js",
-    "revision": "9af70541aca8ae85d12c"
+    "url": "/connectN/_next/static/C7N3EJZEh3_6Kg_7kJQiX/pages/index.js",
+    "revision": "d806c59307a645b8013a"
   },
   {
-    "url": "/connectN/_next/static/UrbT-JDtpWW7Gl-dOmZb4/pages/loading.js",
-    "revision": "95b76f52f6537605f295"
+    "url": "/connectN/_next/static/C7N3EJZEh3_6Kg_7kJQiX/pages/loading.js",
+    "revision": "29b99273111dfb2a0116"
   },
   {
     "url": "/connectN/_next/static/chunks/commons.534aa6d02e011dba7c8c.js",

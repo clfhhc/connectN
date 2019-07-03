@@ -21,7 +21,7 @@ const titleStylesOnN = (setting: Settings | null, winRule: number) => css.resolv
   cursor: pointer;
 
   ::after {
-    content: '${setting === Settings.CHANGE_RULES ? 'Rules' : `Connect ${winRule}`}';
+    content: '${setting === Settings.CHANGE_RULES ? 'Change Rules' : `Connect ${winRule}`}';
   }
 
   :hover {
@@ -30,7 +30,7 @@ const titleStylesOnN = (setting: Settings | null, winRule: number) => css.resolv
   }
 
   :hover ::after {
-    content: '${setting === Settings.CHANGE_RULES ? 'Rules' : `Change Rules`}';
+    content: 'Change Rules';
   }
 `;
 
@@ -78,13 +78,20 @@ const legendStyles = css.resolve`
 const legendLabelStyles = css.resolve`
   margin: 0 ${rem(10)};
   display: inline-block;
+
+  :first-of-type {
+    margin-left: 0;
+  }
+  :last-of-type {
+    margin-right: 0;
+  }
 `;
 
 const legendColorStyles = css.resolve`
   display: inline-block;
   border: ${rem(1)} solid lightgray;
   border-radius: 50%;
-  margin: 0 ${rem(10)} 0 0;
+  margin-right: ${rem(10)};
   width: ${rem(15)};
   height: ${rem(15)};
 `;
