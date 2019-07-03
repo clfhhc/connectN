@@ -285,6 +285,7 @@ This is an example project setup with NextJs, Typescript, Eslint, Prettier, Jest
     import Link from 'next/link';
 
     const { publicRuntimeConfig } = getConfig();
+    export const { linkPrefix } = publicRuntimeConfig;
     // ...
     const PrefixedLink: React.FC<Props> = ({ href, as = href, children, passHref }) => (
       <Link href={href} as={`${linkPrefix}${as}` passHref={passHref}}>
@@ -338,3 +339,137 @@ This is an example project setup with NextJs, Typescript, Eslint, Prettier, Jest
       </Link>
     </Head>
     ```
+
+### [Web Mainfest](https://www.npmjs.com/package/next-manifest)
+36. `npm i -P next-manifest`
+37. add to `next.config.js` to make `manifest.json` available at `/static/manifest/manifest.json`
+    ```
+    //...
+    const withManifest = require('next-manifest');
+
+    //...
+    const prodAssetPrefix = '/NextJs_Ts_Eslint_Jest';
+
+    module.exports = withManifest(
+      withOffline(
+        withTypescript({
+          //...
+
+          manifest: {
+            /* eslint-disable @typescript-eslint/camelcase */
+            short_name: 'NextJs_Ts_Eslint_Jest',
+            name: 'NextJs Ts Eslint Jest',
+            start_url: `${prodAssetPrefix}/`,
+            background_color: 'white',
+            display: 'standalone',
+            scope: `${prodAssetPrefix}/`,
+            dir: 'ltr', // text direction: left to right
+            theme_color: 'white',
+            icons: [
+              {
+                src: `${prodAssetPrefix}/static/icons/icon192x192.png`,
+                sizes: '192x192',
+                type: 'image/png',
+              },
+              {
+                src: `${prodAssetPrefix}/static/icons/icon512x512.png`,
+                sizes: '512x512',
+                type: 'image/png',
+              },
+            ],
+            /* eslint-enable @typescript-eslint/camelcase */
+          },
+
+          //...
+        })
+      )
+    );
+    ```
+38. Create `<ManifestHead>` to hold mainfest related head elements and add support to other browsers
+    ```
+    //...
+    import NextHead from 'next/head';
+    // @ts-ignore
+    import Manifest from 'next-manifest/manifest';
+    import Link, { linkPrefix } from '../Link';
+
+    //...
+
+    const Head: React.FC<Props> = ({
+      title = '',
+      description = title,
+      charset = 'utf-8',
+      hrefPage,
+      hrefManifest,
+      viewportScale,
+      themeColor,
+      favIconPath,
+      keywords = title,
+      refresh,
+      appleIconPath,
+      appleIconSize = '192x192',
+      children,
+    }) => (
+      <NextHead>
+        <title>{title}</title>
+        <meta charSet={charset} />
+        <meta name="description" content={description} />
+        <Link href={hrefManifest} passHref>
+          <Manifest themeColor={themeColor} initialScale={viewportScale} />
+        </Link>
+        {hrefPage && (
+          <Link href={hrefPage} passHref>
+            <link rel="canonical" />
+          </Link>
+        )}
+
+        {/* favicon link */}
+        {favIconPath && (
+          <Link href={favIconPath} passHref>
+            <link rel="shortcut icon" type="image/x-icon" />
+          </Link>
+        )}
+
+        <meta name="keywords" content={keywords} />
+        <meta httpEquiv="X-UA-Compatible" content="ie=edge" />
+        {refresh && <meta httpEquiv="refresh" content={`${refresh}`} />}
+
+        {/* for safari */}
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="blue" />
+        <meta name="apple-mobile-web-app-title" content="With Manifest" />
+        {appleIconPath && appleIconSize && (
+          <Link href={appleIconPath} passHref>
+            <link rel="apple-touch-icon" sizes={appleIconSize} />
+          </Link>
+        )}
+
+        {/* for IE */}
+        {appleIconPath && (
+          <meta name="msapplication-TitleImage" content={`${linkPrefix}${appleIconPath}`} />
+        )}
+        {themeColor && <meta name="msapplication-TitleColor" content={themeColor} />}
+
+        {children}
+      </NextHead>
+    );
+    //...
+    ```
+39. import the `<ManifestHead>` in the page
+```
+//...
+import ManifestHead from '../src/components/Head/ManifestHead';
+import Link from '../src/components/Link';
+
+//...
+    <ManifestHead
+      title="Connect N"
+      themeColor="red"
+      hrefPage="/"
+      favIconPath="/static/icons/favicon.ico"
+      appleIconPath="/static/icons/icon192x192.png"
+      hrefManifest="/static/manifest/manifest.json"
+    />
+//..
+```
+40. Make icons files (favicon.ico, icon*.png) available in the static folder

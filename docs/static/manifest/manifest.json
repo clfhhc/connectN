@@ -16,7 +16,8 @@
 	"start_url": "/connectN/",
 	"display": "standalone",
 	"orientation": "natural",
-	"background_color": "#ffffff",
-	"theme_color": "#ffffff",
-	"scope": "/connectN/"
+	"background_color": "red",
+	"theme_color": "red",
+	"scope": "/connectN/",
+	"dir": "ltr"
 }

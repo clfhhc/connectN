@@ -64,10 +64,11 @@ module.exports = withManifest(
         short_name: 'ConnectN',
         name: 'Connect N',
         start_url: `${prodAssetPrefix}/`,
-        background_color: '#ffffff',
+        background_color: 'red',
         display: 'standalone',
         scope: `${prodAssetPrefix}/`,
-        theme_color: '#ffffff',
+        dir: 'ltr',
+        theme_color: 'red',
         icons: [
           {
             src: `${prodAssetPrefix}/static/icons/icon192x192.png`,
