@@ -1,27 +1,31 @@
 self.__precacheManifest = [
   {
-    "url": "/connectN/_next/static/C7N3EJZEh3_6Kg_7kJQiX/pages/_app.js",
-    "revision": "797ecda003d1a8dd0532"
+    "url": "/connectN/_next/static/EI1xIXlyI7qGEjgol7VTC/pages/_app.js",
+    "revision": "8f3f39c795774ececaaa"
   },
   {
-    "url": "/connectN/_next/static/C7N3EJZEh3_6Kg_7kJQiX/pages/_error.js",
-    "revision": "5946f9d9fcbbeb69b072"
+    "url": "/connectN/_next/static/EI1xIXlyI7qGEjgol7VTC/pages/_error.js",
+    "revision": "5462d5a6ed1974dfab77"
   },
   {
-    "url": "/connectN/_next/static/C7N3EJZEh3_6Kg_7kJQiX/pages/about.js",
-    "revision": "2761e19e179ff760ea81"
+    "url": "/connectN/_next/static/EI1xIXlyI7qGEjgol7VTC/pages/about.js",
+    "revision": "6245c91793be9903b29f"
   },
   {
-    "url": "/connectN/_next/static/C7N3EJZEh3_6Kg_7kJQiX/pages/index.js",
-    "revision": "d806c59307a645b8013a"
+    "url": "/connectN/_next/static/EI1xIXlyI7qGEjgol7VTC/pages/connectN.js",
+    "revision": "c3af3ebd59ca31c5bd0b"
   },
   {
-    "url": "/connectN/_next/static/C7N3EJZEh3_6Kg_7kJQiX/pages/loading.js",
-    "revision": "29b99273111dfb2a0116"
+    "url": "/connectN/_next/static/EI1xIXlyI7qGEjgol7VTC/pages/index.js",
+    "revision": "144f5bee3c63bed323af"
   },
   {
-    "url": "/connectN/_next/static/chunks/commons.534aa6d02e011dba7c8c.js",
-    "revision": "b7b072ae369c940c86f3"
+    "url": "/connectN/_next/static/EI1xIXlyI7qGEjgol7VTC/pages/loading.js",
+    "revision": "7c67416dbe7e667d2a07"
+  },
+  {
+    "url": "/connectN/_next/static/chunks/commons.2c19f9333690d003f6d9.js",
+    "revision": "ea31049d4ea823e860c4"
   },
   {
     "url": "/connectN/_next/static/runtime/main-b27e9113408fba08ef4c.js",

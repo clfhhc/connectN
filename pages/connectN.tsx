@@ -9,7 +9,7 @@ const Page: NextFC = () => (
     <ManifestHead
       title="Connect N"
       themeColor="red"
-      hrefPage="/"
+      hrefPage="/connectN"
       favIconPath="/static/icons/favicon.ico"
       appleIconPath="/static/icons/icon192x192.png"
       hrefManifest="/static/manifest/manifest.json"
