@@ -60,7 +60,6 @@ const Head: React.FC<Props> = ({
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="blue" />
     <meta name="apple-mobile-web-app-title" content="With Manifest" />
-
     {appleIconPath && appleIconSize && (
       <Link href={appleIconPath} passHref>
         <link rel="apple-touch-icon" sizes={appleIconSize} />
