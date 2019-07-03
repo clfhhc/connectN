@@ -4,7 +4,7 @@ import getConfig from 'next-server/config';
 import Link from 'next/link';
 
 const { publicRuntimeConfig } = getConfig();
-const { linkPrefix } = publicRuntimeConfig;
+export const { linkPrefix } = publicRuntimeConfig;
 
 interface Props {
   href: string | UrlLike;
