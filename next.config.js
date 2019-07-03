@@ -70,12 +70,12 @@ module.exports = withManifest(
         theme_color: '#ffffff',
         icons: [
           {
-            src: '/static/icons/icon192x192.png',
+            src: `${prodAssetPrefix}/static/icons/icon192x192.png`,
             sizes: '192x192',
             type: 'image/png',
           },
           {
-            src: '/static/icons/icon512x512.png',
+            src: `${prodAssetPrefix}/static/icons/icon512x512.png`,
             sizes: '512x512',
             type: 'image/png',
           },
