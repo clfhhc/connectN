@@ -2,7 +2,7 @@ import React from 'react';
 import NextHead from 'next/head';
 // @ts-ignore
 import Manifest from 'next-manifest/manifest';
-import Link from '../Link';
+import Link, { linkPrefix } from '../Link';
 
 interface Props {
   title?: string;
@@ -15,6 +15,8 @@ interface Props {
   favIconPath?: string;
   keywords?: string;
   refresh?: number;
+  appleIconPath?: string;
+  appleIconSize?: string;
   children?: React.ReactElement;
 }
 
@@ -29,6 +31,8 @@ const Head: React.FC<Props> = ({
   favIconPath,
   keywords = title,
   refresh,
+  appleIconPath,
+  appleIconSize = '192x192',
   children,
 }) => (
   <NextHead>
@@ -51,6 +55,23 @@ const Head: React.FC<Props> = ({
     <meta name="keywords" content={keywords} />
     <meta httpEquiv="X-UA-Compatible" content="ie=edge" />
     {refresh && <meta httpEquiv="refresh" content={`${refresh}`} />}
+
+    {/* for safari */}
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="blue" />
+    <meta name="apple-mobile-web-app-title" content="With Manifest" />
+
+    {appleIconPath && appleIconSize && (
+      <Link href={appleIconPath} passHref>
+        <link rel="apple-touch-icon" sizes={appleIconSize} />
+      </Link>
+    )}
+
+    {/* for IE */}
+    {appleIconPath && (
+      <meta name="msapplication-TitleImage" content={`${linkPrefix}${appleIconPath}`} />
+    )}
+    {themeColor && <meta name="msapplication-TitleColor" content={themeColor} />}
     {children}
   </NextHead>
 );
