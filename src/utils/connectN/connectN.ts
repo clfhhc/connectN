@@ -93,7 +93,7 @@ export const incrementalCheckWin = ({
 };
 
 export const placeOnePiece = ({
-  type,
+  gameType,
   col,
   row = 0,
   curRecord,
@@ -101,7 +101,7 @@ export const placeOnePiece = ({
   checkAgainst,
   next,
 }: {
-  type: Readonly<GameType>;
+  gameType: Readonly<GameType>;
   col: Readonly<number>;
   row?: Readonly<number>;
   curRecord: Readonly<GameRecord>;
@@ -110,7 +110,7 @@ export const placeOnePiece = ({
   next: Readonly<number[]>;
 }): GameRecord => {
   // determine current piece
-  const piece = type === GameType.connectN ? curRecord.filledBoard[col] + 1 : 1 << row;
+  const piece = gameType === GameType.connectN ? curRecord.filledBoard[col] + 1 : 1 << row;
 
   // determine if the column is all occupied before placing
   if (!(curRecord.filledBoard[col] & piece)) return curRecord;
