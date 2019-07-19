@@ -12,7 +12,8 @@ export interface GameSetup {
   winRule: number;
   names: string[];
   next: number[];
-  fullBoard: number;
+  fullColumn: number;
+  fullBoard: number[];
   checkAgainst: number;
   boardSetup: number[];
 }
@@ -21,24 +22,32 @@ export interface GameRecord {
   boards: number[][];
   win: number;
   filledBoard: number[];
+  filledColumn: number;
   gameOver: boolean;
   turn: number;
 }
 
-export const gameRecordKeys: (keyof GameRecord)[] = ['boards', 'win', 'filled', 'gameOver', 'turn'];
+export const gameRecordKeys: (keyof GameRecord)[] = [
+  'boards',
+  'win',
+  'filledBoard',
+  'filledColumn',
+  'gameOver',
+  'turn',
+];
 
 export const incrementalCheckWin = ({
   board,
   piece,
   col,
   checkAgainst,
-  fullBoard,
+  fullColumn,
 }: {
   board: Readonly<number[]>;
   piece: Readonly<number>;
   col: Readonly<number>;
   checkAgainst: Readonly<number>;
-  fullBoard: Readonly<number>;
+  fullColumn: Readonly<number>;
 }) => {
   const check = {
     curCol: 0,
@@ -59,7 +68,7 @@ export const incrementalCheckWin = ({
 
   // row and diagnal checks
   check.checkAgainst = checkAgainst;
-  while (!((check.checkAgainst & fullBoard) ^ check.checkAgainst)) {
+  while (!((check.checkAgainst & fullColumn) ^ check.checkAgainst)) {
     if (check.checkAgainst & bitCol) {
       check.curCol = check.curRound;
       check.row = board[check.curCol];
@@ -86,40 +95,34 @@ export const incrementalCheckWin = ({
 export const placeOnePiece = ({
   type,
   col,
-  row,
-  rowNum,
+  row = 0,
   curRecord,
-  fullBoard,
+  fullColumn,
   checkAgainst,
   next,
 }: {
   type: Readonly<GameType>;
   col: Readonly<number>;
-  row: Readonly<number>;
-  rowNum: Readonly<number>;
+  row?: Readonly<number>;
   curRecord: Readonly<GameRecord>;
-  fullBoard: Readonly<number>;
+  fullColumn: Readonly<number>;
   checkAgainst: Readonly<number>;
   next: Readonly<number[]>;
 }): GameRecord => {
   // determine current piece
-  const piece =
-  draftRecord.boards.reduce((result, board) => result | board[col] || board[col], 0) + 1;
+  const piece = type === GameType.connectN ? curRecord.filledBoard[col] + 1 : 1 << row;
 
   // determine if the column is all occupied before placing
-  if (!(curRecord.filled & (1 << col))) return curRecord;
+  if (!(curRecord.filledBoard[col] & piece)) return curRecord;
 
   /* eslint no-param-reassign: ["error", { "props": true, "ignorePropertyModificationsFor": ["draftRecord"] }] */
   return produce(curRecord, (draftRecord: GameRecord) => {
-    // determine current piece
-    const piece =
-      draftRecord.boards.reduce((result, board) => result | board[col] || board[col], 0) + 1;
-
     // toggle piece
     draftRecord.boards[draftRecord.turn][col] ^= piece;
+    draftRecord.filledBoard[col] ^= piece;
 
     // determine if the column is all occupied after placing
-    if ((1 << rowNum) & (piece << 1)) draftRecord.filled ^= 1 << col;
+    if (!draftRecord.filledBoard[col]) draftRecord.filledColumn ^= 1 << col;
 
     // determine game status
     if (
@@ -128,13 +131,13 @@ export const placeOnePiece = ({
         piece,
         col,
         checkAgainst,
-        fullBoard,
+        fullColumn,
       })
     ) {
       // if current player wins
       draftRecord.gameOver = true;
       draftRecord.win = draftRecord.turn;
-    } else if (!draftRecord.filled) {
+    } else if (!draftRecord.filledColumn) {
       // if draw
       draftRecord.gameOver = true;
     } else {
@@ -153,13 +156,12 @@ export const getBanner = (record: GameRecord, names: string[]): string => {
 
 export const resetGame = (
   curRecord: GameRecord,
-  fullBoard: number,
-  boardSetup: number[],
-  next: number[]
+  { next, fullColumn, fullBoard, boardSetup }: GameSetup
 ) => {
   return produce(curRecord, (draftRecord: GameRecord) => {
     draftRecord.win = -1;
-    draftRecord.filled = fullBoard;
+    draftRecord.filledColumn = fullColumn;
+    draftRecord.filledBoard = fullBoard;
     draftRecord.gameOver = false;
     draftRecord.turn = draftRecord.turn || 0;
     draftRecord.boards = next.map(() => boardSetup.slice());
