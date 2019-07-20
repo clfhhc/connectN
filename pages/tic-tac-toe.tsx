@@ -17,9 +17,9 @@ const storeCallback = (store: Store) => {
 export const Page: FC = () => (
   <section>
     <ManifestHead
-      title="Nextjs Typescript Eslint TicTacToe"
+      title="Tic Tac Toe"
       themeColor="red"
-      hrefCanonical="/ticTacToe"
+      hrefCanonical="/tic-tac-toe"
       favIconPath="/static/icons/favicon.ico"
       appleIconPath="/static/icons/icon192x192.png"
       hrefManifest="/static/manifest/manifest.json"

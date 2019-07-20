@@ -55,8 +55,8 @@ module.exports = withManifest(
 
     manifest: {
       /* eslint-disable @typescript-eslint/camelcase */
-      short_name: 'Nextjs_Ts_Eslint',
-      name: 'Nextjs Ts Eslint',
+      short_name: 'A Simple Connect Game',
+      name: 'Connect N',
       start_url: `${prodAssetPrefix}/`,
       background_color: 'red',
       display: 'standalone',

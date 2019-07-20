@@ -17,9 +17,9 @@ const storeCallback = (store: Store) => {
 export const Page: FC = () => (
   <section>
     <ManifestHead
-      title="Nextjs Typescript Eslint connectN"
+      title="Connect N"
       themeColor="red"
-      hrefCanonical="/connectN"
+      hrefCanonical="/connect-n"
       favIconPath="/static/icons/favicon.ico"
       appleIconPath="/static/icons/icon192x192.png"
       hrefManifest="/static/manifest/manifest.json"
