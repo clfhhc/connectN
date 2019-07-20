@@ -3,21 +3,21 @@
 	"short_name": "Nextjs_Ts_Es",
 	"icons": [
 		{
-			"src": "/Nextjs_Ts_Eslint/static/icons/icon192x192.png",
+			"src": "/connectN/static/icons/icon192x192.png",
 			"sizes": "192x192",
 			"type": "image/png"
 		},
 		{
-			"src": "/Nextjs_Ts_Eslint/static/icons/icon512x512.png",
+			"src": "/connectN/static/icons/icon512x512.png",
 			"sizes": "512x512",
 			"type": "image/png"
 		}
 	],
-	"start_url": "/Nextjs_Ts_Eslint/",
+	"start_url": "/connectN/",
 	"display": "standalone",
 	"orientation": "natural",
 	"background_color": "red",
 	"theme_color": "red",
-	"scope": "/Nextjs_Ts_Eslint/",
+	"scope": "/connectN/",
 	"dir": "ltr"
 }

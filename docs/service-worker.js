@@ -1,31 +1,31 @@
 self.__precacheManifest = [
   {
-    "url": "/Nextjs_Ts_Eslint/_next/static/chunks/commons.a651434c2f2de7a3b951.js",
+    "url": "/connectN/_next/static/chunks/commons.a651434c2f2de7a3b951.js",
     "revision": "509a088985f292c0b39b"
   },
   {
-    "url": "/Nextjs_Ts_Eslint/_next/static/runtime/main-bd06856657f35371d326.js",
-    "revision": "c012f364407a035f27d4"
+    "url": "/connectN/_next/static/m_sg0NpKErAik5eYBSZV8/pages/_app.js",
+    "revision": "f6d43dbb1a1f6d079bd9"
   },
   {
-    "url": "/Nextjs_Ts_Eslint/_next/static/runtime/webpack-3df6523e264ff2ac6548.js",
+    "url": "/connectN/_next/static/m_sg0NpKErAik5eYBSZV8/pages/_error.js",
+    "revision": "161488adec7c2b4840f3"
+  },
+  {
+    "url": "/connectN/_next/static/m_sg0NpKErAik5eYBSZV8/pages/connectN.js",
+    "revision": "0276f54242dbb6c6d0bc"
+  },
+  {
+    "url": "/connectN/_next/static/m_sg0NpKErAik5eYBSZV8/pages/ticTacToe.js",
+    "revision": "6fa5bbbcc86c359efcba"
+  },
+  {
+    "url": "/connectN/_next/static/runtime/main-0be3a36595844a02f351.js",
+    "revision": "d79c0dc7525a32a944c9"
+  },
+  {
+    "url": "/connectN/_next/static/runtime/webpack-3df6523e264ff2ac6548.js",
     "revision": "b0a559ac8f238b6fd6f7"
-  },
-  {
-    "url": "/Nextjs_Ts_Eslint/_next/static/uSTxD15OAu1hiVVeYAg8X/pages/_app.js",
-    "revision": "3c6433d058fd81c7de39"
-  },
-  {
-    "url": "/Nextjs_Ts_Eslint/_next/static/uSTxD15OAu1hiVVeYAg8X/pages/_error.js",
-    "revision": "6bca09eb9b7b10241b44"
-  },
-  {
-    "url": "/Nextjs_Ts_Eslint/_next/static/uSTxD15OAu1hiVVeYAg8X/pages/connectN.js",
-    "revision": "ba994491f42f9dc99c6a"
-  },
-  {
-    "url": "/Nextjs_Ts_Eslint/_next/static/uSTxD15OAu1hiVVeYAg8X/pages/ticTacToe.js",
-    "revision": "6ccb4ac91f9dbe22849c"
   }
 ];
 
