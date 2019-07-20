@@ -34,11 +34,11 @@ const linkBoardStyles = css`
 const Page: FC = () => (
   <section>
     <ManifestHead
-      title="Tic Tac Toe"
-      description="a simple tic-tac-toe game using bitwise operations"
+      title="Connect Game"
+      description="a simple connect game using bitwise operations"
       keywords={commonKeyWords}
       themeColor="red"
-      hrefCanonical="/tic-tac-toe"
+      hrefCanonical="/"
       favIconPath="/static/icons/favicon.ico"
       appleIconPath="/static/icons/icon192x192.png"
       hrefManifest="/static/manifest/manifest.json"
