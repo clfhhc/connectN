@@ -1,7 +1,6 @@
 import React, { FC, useCallback } from 'react';
 import { css } from '@emotion/core';
 import rem from '../../utils/style/rem';
-import buttonReset from '../../utils/style/buttonReset';
 
 const boardStylesOnColNum = (colNum: number) => css`
   max-width: ${rem(80 * colNum)};
@@ -18,7 +17,6 @@ const boardStylesOnColNum = (colNum: number) => css`
 `;
 
 const cellStyles = css`
-  ${buttonReset};
   cursor: pointer;
   border: ${rem(1)} solid lightgray;
 `;

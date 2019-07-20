@@ -13,7 +13,6 @@ import {
   GameType,
 } from '../../utils/connectN/connectN';
 import { ChangeRulesProps, ChangePlayersProps } from '../../redux/reducers/setup';
-import buttonReset from '../../utils/style/buttonReset';
 import rem from '../../utils/style/rem';
 import {
   RESTART_GAME,
@@ -31,7 +30,6 @@ enum Settings {
 }
 
 const titleStylesOnN = (setting: Settings | null, winRule: number) => css`
-  ${buttonReset};
   display: block;
   text-align: center;
   margin: ${rem(40)} auto;
@@ -57,7 +55,6 @@ const titleStylesOnN = (setting: Settings | null, winRule: number) => css`
 `;
 
 const bannerStylesOnBanner = (banner: string) => css`
-  ${buttonReset};
   display: block;
   text-align: center;
   margin: ${rem(20)} auto;
@@ -82,7 +79,6 @@ const bannerStylesOnBanner = (banner: string) => css`
 `;
 
 const legendStyles = css`
-  ${buttonReset};
   display: flex;
   flex-flow: row wrap;
   margin: ${rem(20)} auto;

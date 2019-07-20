@@ -1,10 +1,12 @@
 import React from 'react';
 import App, { Container } from 'next/app';
 import { Provider } from 'react-redux';
+import { Global, css } from '@emotion/core';
 import withRedux, { StoreProps } from '../src/utils/redux/withRedux';
 import { ActionWithPayload } from '../src/utils/redux/types';
 import withReduxSaga from '../src/utils/redux/withReduxSaga';
 import initStore, { Store } from '../src/redux/store';
+import { globalButtonReset } from '../src/utils/style/buttonReset';
 
 class MyApp extends App<StoreProps<Store>> {
   public render() {
@@ -12,6 +14,16 @@ class MyApp extends App<StoreProps<Store>> {
     return (
       <Container>
         <Provider store={store}>
+          <Global
+            styles={[
+              globalButtonReset,
+              css`
+                body {
+                  touch-action: manipulation;
+                }
+              `,
+            ]}
+          />
           <Component {...pageProps} />
         </Provider>
       </Container>
