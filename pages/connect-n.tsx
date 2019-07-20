@@ -8,6 +8,7 @@ import setup, { initialSetup } from '../src/redux/reducers/setup';
 import game from '../src/redux/reducers/game';
 import { RESET_SETUP, RESTART_GAME } from '../src/redux/actions/actionTypes';
 import { ActionWithPayload } from '../src/utils/redux/types';
+import { GameType } from '../src/utils/connectN/connectN';
 
 const { publicRuntimeConfig } = getConfig();
 const { commonKeyWords } = publicRuntimeConfig;
@@ -30,7 +31,7 @@ export const Page: FC = () => (
       appleIconPath="/static/icons/icon192x192.png"
       hrefManifest="/static/manifest/manifest.json"
     />
-    <ConnectN />
+    <ConnectN gameType={GameType.connectN} />
   </section>
 );
 

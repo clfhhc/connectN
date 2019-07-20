@@ -3,11 +3,12 @@ import getConfig from 'next/config';
 import ManifestHead from '../src/components/Head/ManifestHead';
 import dynamicStoreCallbackWrap from '../src/utils/redux/dynamicStoreCallbackWrap';
 import { Store } from '../src/redux/store';
-import TicTacToe from '../src/components/TicTacToe';
+import ConnectN from '../src/components/ConnectN';
 import setup, { initialSetup } from '../src/redux/reducers/setup';
 import game from '../src/redux/reducers/game';
 import { RESET_SETUP, RESTART_GAME } from '../src/redux/actions/actionTypes';
 import { ActionWithPayload } from '../src/utils/redux/types';
+import { GameType } from '../src/utils/connectN/connectN';
 
 const { publicRuntimeConfig } = getConfig();
 const { commonKeyWords } = publicRuntimeConfig;
@@ -30,7 +31,7 @@ export const Page: FC = () => (
       appleIconPath="/static/icons/icon192x192.png"
       hrefManifest="/static/manifest/manifest.json"
     />
-    <TicTacToe />
+    <ConnectN gameType={GameType.ticTacToe} />
   </section>
 );
 

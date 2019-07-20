@@ -1,8 +1,8 @@
-import React, { FC, useState, useMemo, useCallback, KeyboardEvent, useEffect } from 'react';
+import React, { FC, useState, useCallback, KeyboardEvent, useEffect } from 'react';
 import { Dispatch } from 'redux';
 import { connect } from 'react-redux';
-import { css } from '@emotion/core';
-import Board, { playerCheckerStyles } from './Board';
+import { css, SerializedStyles } from '@emotion/core';
+import Board, { playerCheckerStylesOnGameType } from './Board';
 import { ConnectedProps } from '../../utils/redux/types';
 import {
   getBanner,
@@ -22,35 +22,42 @@ import {
 } from '../../redux/actions/actionTypes';
 import objectIsEmpty from '../../utils/common/objectIsEmpty';
 
-const gameType = GameType.connectN;
-
 enum Settings {
   CHANGE_RULES_SETTINGS = 'CHANGE_RULES_SETTINGS',
   CHANGE_PLAYERS_SETTINGS = 'CHANGE_PLAYERS_SETTINGS',
 }
 
-const titleStylesOnN = (setting: Settings | null, winRule: number) => css`
+const titleStyles = css`
   display: block;
   text-align: center;
   margin: ${rem(40)} auto;
   font-size: ${rem(36)};
   border-top: ${rem(1)} solid transparent;
   border-bottom: ${rem(1)} solid transparent;
+`;
+
+const titleStylesOnN = (setting: Settings | null, winRule: number) => css`
   cursor: pointer;
 
-  ::after {
+  &::after {
     content: '${
       setting === Settings.CHANGE_RULES_SETTINGS ? 'Change Rules' : `Connect ${winRule}`
     }';
   }
 
-  :hover {
+  &:hover {
     border-top: ${rem(1)} solid black;
     border-bottom: ${rem(1)} solid black;
   }
 
-  :hover ::after {
+  &:hover ::after {
     content: 'Change Rules';
+  }
+`;
+
+const titleStylesForTicTacToe = css`
+  &::after {
+    content: 'Tic-Tac-Toe';
   }
 `;
 
@@ -109,12 +116,17 @@ const legendLabelStyles = css`
 
 const legendColorStyles = css`
   display: inline-block;
-  border: ${rem(1)} solid lightgray;
-  border-radius: 50%;
   margin-right: ${rem(10)};
   width: ${rem(15)};
   height: ${rem(15)};
 `;
+
+const legendColorStylesOnGameType: { [key in string]: SerializedStyles } = {
+  connectN: css`
+    border: ${rem(1)} solid lightgray;
+    border-radius: 50%;
+  `,
+};
 
 const inputContainerStyles = css`
   height: ${rem(25)};
@@ -148,9 +160,14 @@ const mapDispatchToProps = (dispatch: Dispatch) => ({
     dispatch({ type: CHANGE_PLAYERS, payload: changePlayersProps }),
 });
 
-type Props = ConnectedProps<typeof mapStateToProps, typeof mapDispatchToProps>;
+interface OwnProps {
+  gameType: GameType;
+}
+
+type Props = ConnectedProps<typeof mapStateToProps, typeof mapDispatchToProps, OwnProps>;
 
 const ConnectN: FC<Props> = ({
+  gameType,
   setup,
   game,
   resetGame,
@@ -163,8 +180,6 @@ const ConnectN: FC<Props> = ({
 
   const { fullBoard, boardSetup, next, names, rowNum, checkAgainst, winRule, fullColumn } = setup;
   const { win, gameOver, turn, boards } = game;
-
-  const titleStyles = useMemo(() => titleStylesOnN(setting, winRule), [setting, winRule]);
 
   const clearSetting = useCallback(() => {
     updateSetting(null);
@@ -258,9 +273,13 @@ const ConnectN: FC<Props> = ({
         <button
           type="button"
           aria-label="Title"
-          css={titleStyles}
+          css={[
+            titleStyles,
+            gameType === GameType.connectN && titleStylesOnN(setting, winRule),
+            gameType === GameType.ticTacToe && titleStylesForTicTacToe,
+          ]}
           onClick={() => {
-            if (setting !== Settings.CHANGE_RULES_SETTINGS) {
+            if (setting !== Settings.CHANGE_RULES_SETTINGS && gameType === GameType.connectN) {
               updateSetting(Settings.CHANGE_RULES_SETTINGS);
             }
           }}
@@ -297,7 +316,11 @@ const ConnectN: FC<Props> = ({
             aria-label="change-players-input"
             css={inputStyles}
             type="text"
-            placeholder="up to 4 player's names with comma in between"
+            placeholder={
+              gameType === GameType.ticTacToe
+                ? "change players' names, with comma in between"
+                : "up to 4 player's names, with comma in between"
+            }
             value={inputText}
             onChange={handleChangeInput}
             onKeyDown={handleChangePlayers}
@@ -312,14 +335,25 @@ const ConnectN: FC<Props> = ({
           >
             {names.map((n, ind) => (
               <div css={legendLabelStyles} key={`legend-${n}`}>
-                <div css={[legendColorStyles, playerCheckerStyles[ind]]} />
+                <div
+                  css={[
+                    legendColorStyles,
+                    legendColorStylesOnGameType[gameType],
+                    playerCheckerStylesOnGameType[gameType][ind],
+                  ]}
+                />
                 {n}
               </div>
             ))}
           </button>
         )}
       </div>
-      <Board boards={boards} rowNum={rowNum} onClickOnCell={handleClickOnCell} />
+      <Board
+        gameType={gameType}
+        boards={boards}
+        rowNum={rowNum}
+        onClickOnCell={handleClickOnCell}
+      />
     </div>
   );
 };

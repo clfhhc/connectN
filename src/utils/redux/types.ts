@@ -10,4 +10,4 @@ export type ConnectedProps<
   Props = undefined
 > = (MapState extends ((...args: any[]) => any) ? ReturnType<MapState> : {}) &
   (MapDispatch extends ((...args: any[]) => any) ? ReturnType<MapDispatch> : {}) &
-  (Props extends {} ? Partial<Props> : {});
+  (Props extends {} ? Props : {});

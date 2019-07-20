@@ -1,74 +1,138 @@
 import React, { FC, useCallback } from 'react';
-import { css } from '@emotion/core';
+import { css, SerializedStyles } from '@emotion/core';
 import rem from '../../utils/style/rem';
+import { GameType } from '../../utils/connectN/connectN';
 
-const boardStylesOnColNum = (colNum: number) => css`
-  max-width: ${rem(80 * colNum)};
+const boardStyles = css`
   margin: ${rem(20)} auto;
   box-sizing: border-box;
   display: grid;
-  grid-template-columns: repeat(${colNum}, 1fr);
-  grid-gap: ${rem(1)};
-  background-color: lightgray;
   grid-auto-rows: auto;
-  border: ${rem(2)} solid black;
 
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   -webkit-tap-highlight-color: transparent;
 `;
+
+const boardStylesOnColNum = (colNum: number) => css`
+  max-width: ${rem(80 * colNum)};
+  grid-template-columns: repeat(${colNum}, 1fr);
+`;
+
+const boardStylesOnGameType: { [key in string]: SerializedStyles } = {
+  connectN: css`
+    grid-gap: ${rem(1)};
+    background-color: lightgray;
+    border: ${rem(2)} solid black;
+  `,
+  ticTacToe: css`
+    grid-gap: ${rem(3)};
+    background-color: black;
+    border: ${rem(3)} solid white;
+  `,
+};
 
 const cellStyles = css`
   cursor: pointer;
   background-color: white;
 `;
 
-const checkerStyles = css`
-  width: auto;
-  padding-bottom: calc(100% - ${rem(2 * 7)});
-  margin: ${rem(5)};
-  border-radius: 50%;
-  border: ${rem(2)} solid gray;
-
-  @media only screen and (max-width: 400px) {
-    padding-bottom: calc(100% - ${rem(2 * 3)});
-    margin: ${rem(2)};
-    border: ${rem(1)} solid gray;
-  }
-`;
-
-export const playerCheckerStyles = [
-  css`
-    border-color: gray;
-    background: yellow;
-  `,
-  css`
-    border-color: white;
-    background: red;
-
-    @media only screen and (max-width: 400px) {
-      border-color: white;
+const cellStylesOnGameType: { [key in string]: SerializedStyles } = {
+  ticTacToe: css`
+    width: 100%;
+    position: relative;
+    &::before {
+      display: block;
+      content: '';
+      width: 100%;
+      padding-bottom: 100%;
     }
   `,
-  css`
-    border-color: gray;
-    background: skyblue;
+};
+
+const checkerStylesOnGameType: { [key in string]: SerializedStyles } = {
+  connectN: css`
+    width: auto;
+    padding-bottom: calc(100% - ${rem(2 * 7)});
+    margin: ${rem(5)};
+    border-radius: 50%;
+    border: ${rem(2)} solid gray;
+
+    @media only screen and (max-width: 400px) {
+      padding-bottom: calc(100% - ${rem(2 * 3)});
+      margin: ${rem(2)};
+      border: ${rem(1)} solid gray;
+    }
   `,
-  css`
-    border-color: gray;
-    background: pink;
+  ticTacToe: css`
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    & div {
+      width: 100%;
+      height: 100%;
+      display: table;
+    }
+    & span {
+      display: table-cell;
+      text-align: center;
+      vertical-align: middle;
+      font-size: ${rem(60)};
+
+      @media only screen and (max-width: 248px) {
+        font-size: 25vw;
+      }
+    }
   `,
-];
+};
+
+export const playerCheckerStylesOnGameType: { [key in string]: SerializedStyles[] } = {
+  connectN: [
+    css`
+      border-color: gray;
+      background: yellow;
+    `,
+    css`
+      border-color: white;
+      background: red;
+
+      @media only screen and (max-width: 400px) {
+        border-color: white;
+      }
+    `,
+    css`
+      border-color: gray;
+      background: skyblue;
+    `,
+    css`
+      border-color: gray;
+      background: pink;
+    `,
+  ],
+  ticTacToe: [
+    css`
+      &::after {
+        content: 'O:';
+      }
+    `,
+    css`
+      &::after {
+        content: 'X:';
+      }
+    `,
+  ],
+};
 
 interface Props {
+  gameType?: GameType;
   rowNum: number;
   boards: number[][];
   onClickOnCell?(colInd: number, rowInd: number): (e: React.MouseEvent) => void;
 }
 
-const Board: FC<Props> = ({ rowNum, boards, onClickOnCell }) => {
+const Board: FC<Props> = ({ gameType = GameType.connectN, rowNum, boards, onClickOnCell }) => {
   const colNum = boards[0].length;
-
-  const boardStyles = boardStylesOnColNum(colNum);
 
   const cellGridPos = useCallback(
     (rowInd: number, colInd: number) => css`
@@ -79,7 +143,7 @@ const Board: FC<Props> = ({ rowNum, boards, onClickOnCell }) => {
   );
 
   return (
-    <div css={boardStyles}>
+    <div css={[boardStyles, boardStylesOnColNum(colNum), boardStylesOnGameType[gameType]]}>
       {boards[0].map((_c, colInd) =>
         Array.from(Array(rowNum), (_r, rowInd) => (
           <button
@@ -87,19 +151,34 @@ const Board: FC<Props> = ({ rowNum, boards, onClickOnCell }) => {
             aria-label="board"
             // eslint-disable-next-line react/no-array-index-key
             key={`cell-${colInd}-${rowInd}`}
-            css={[cellStyles, cellGridPos(rowInd, colInd)]}
+            css={[cellStyles, cellStylesOnGameType[gameType], cellGridPos(rowInd, colInd)]}
             onClick={onClickOnCell && onClickOnCell(colInd, rowInd)}
           >
             <div
               css={[
-                checkerStyles,
-                boards.reduce(
-                  (result, _n, ind) =>
-                    (boards[ind][colInd] & (1 << rowInd) && playerCheckerStyles[ind]) || result,
-                  css``
-                ),
+                checkerStylesOnGameType[gameType],
+                gameType === GameType.connectN &&
+                  boards.reduce(
+                    (result, _n, ind) =>
+                      (boards[ind][colInd] & (1 << rowInd) &&
+                        playerCheckerStylesOnGameType[gameType][ind]) ||
+                      result,
+                    css``
+                  ),
               ]}
-            />
+            >
+              {gameType === GameType.ticTacToe && (
+                <div>
+                  <span>
+                    {boards.reduce(
+                      (result, _n, ind) =>
+                        (boards[ind][colInd] & (1 << rowInd) && ['O', 'X'][ind]) || result,
+                      ''
+                    )}
+                  </span>
+                </div>
+              )}
+            </div>
           </button>
         ))
       )}
