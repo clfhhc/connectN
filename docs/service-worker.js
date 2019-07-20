@@ -1,38 +1,3 @@
-self.__precacheManifest = [
-  {
-    "url": "/connectN/_next/static/chunks/commons.eacf19e95d02138fd5f5.js",
-    "revision": "3baa9233abe61b533275"
-  },
-  {
-    "url": "/connectN/_next/static/runtime/main-f6a67da19b2818bfda9b.js",
-    "revision": "0d1d51da5b09c8ef286b"
-  },
-  {
-    "url": "/connectN/_next/static/runtime/webpack-3df6523e264ff2ac6548.js",
-    "revision": "b0a559ac8f238b6fd6f7"
-  },
-  {
-    "url": "/connectN/_next/static/v8za2OzWSPQvn48-4BovC/pages/_app.js",
-    "revision": "7659d69a448f30d09bbe"
-  },
-  {
-    "url": "/connectN/_next/static/v8za2OzWSPQvn48-4BovC/pages/_error.js",
-    "revision": "2bf930fef0d0864416b5"
-  },
-  {
-    "url": "/connectN/_next/static/v8za2OzWSPQvn48-4BovC/pages/connect-n.js",
-    "revision": "11d40448f34fcc250ec5"
-  },
-  {
-    "url": "/connectN/_next/static/v8za2OzWSPQvn48-4BovC/pages/index.js",
-    "revision": "9322d7356b840fe6cd27"
-  },
-  {
-    "url": "/connectN/_next/static/v8za2OzWSPQvn48-4BovC/pages/tic-tac-toe.js",
-    "revision": "1a42389165c3b824697b"
-  }
-];
-
 /**
  * Welcome to your Workbox-powered service worker!
  *
@@ -49,7 +14,7 @@ self.__precacheManifest = [
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  
+  "precache-manifest.86406e986b808621202380aebd12bc90.js"
 );
 
 workbox.navigationPreload.enable();
