@@ -21,9 +21,9 @@ const boardStylesOnColNum = (colNum: number) => css`
 const cellStyles = css`
   ${buttonReset};
   cursor: pointer;
+  background-color: white;
   width: 100%;
   position: relative;
-  background-color: white;
   &::before {
     display: block;
     content: '';

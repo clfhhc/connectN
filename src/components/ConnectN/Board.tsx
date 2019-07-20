@@ -8,7 +8,8 @@ const boardStylesOnColNum = (colNum: number) => css`
   box-sizing: border-box;
   display: grid;
   grid-template-columns: repeat(${colNum}, 1fr);
-  grid-gap: 0;
+  grid-gap: ${rem(1)};
+  background-color: lightgray;
   grid-auto-rows: auto;
   border: ${rem(2)} solid black;
 
@@ -18,7 +19,7 @@ const boardStylesOnColNum = (colNum: number) => css`
 
 const cellStyles = css`
   cursor: pointer;
-  border: ${rem(1)} solid lightgray;
+  background-color: white;
 `;
 
 const checkerStyles = css`
@@ -41,15 +42,19 @@ export const playerCheckerStyles = [
     background: yellow;
   `,
   css`
-    border-color: lightgray;
+    border-color: white;
     background: red;
+
+    @media only screen and (max-width: 400px) {
+      border-color: white;
+    }
   `,
   css`
     border-color: gray;
     background: skyblue;
   `,
   css`
-    border-color: lightgray;
+    border-color: gray;
     background: pink;
   `,
 ];
@@ -57,7 +62,7 @@ export const playerCheckerStyles = [
 interface Props {
   rowNum: number;
   boards: number[][];
-  onClickOnCell(colInd: number, rowInd: number): (e: React.MouseEvent) => void;
+  onClickOnCell?(colInd: number, rowInd: number): (e: React.MouseEvent) => void;
 }
 
 const Board: FC<Props> = ({ rowNum, boards, onClickOnCell }) => {
@@ -83,7 +88,7 @@ const Board: FC<Props> = ({ rowNum, boards, onClickOnCell }) => {
             // eslint-disable-next-line react/no-array-index-key
             key={`cell-${colInd}-${rowInd}`}
             css={[cellStyles, cellGridPos(rowInd, colInd)]}
-            onClick={onClickOnCell(colInd, rowInd)}
+            onClick={onClickOnCell && onClickOnCell(colInd, rowInd)}
           >
             <div
               css={[
