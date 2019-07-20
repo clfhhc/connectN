@@ -39,13 +39,13 @@ export const gameRecordKeys: (keyof GameRecord)[] = [
 export const incrementalCheckWin = ({
   board,
   piece,
-  col,
+  colInd,
   checkAgainst,
   fullColumn,
 }: {
   board: Readonly<number[]>;
   piece: Readonly<number>;
-  col: Readonly<number>;
+  colInd: Readonly<number>;
   checkAgainst: Readonly<number>;
   fullColumn: Readonly<number>;
 }) => {
@@ -60,11 +60,11 @@ export const incrementalCheckWin = ({
 
   // concurrent column check;
   while (!(check.checkAgainst & piece)) check.checkAgainst <<= 1;
-  if (!((board[col] & check.checkAgainst) ^ check.checkAgainst)) {
+  if (!((board[colInd] & check.checkAgainst) ^ check.checkAgainst)) {
     return true;
   }
 
-  const bitCol = 1 << col;
+  const bitCol = 1 << colInd;
 
   // row and diagnal checks
   check.checkAgainst = checkAgainst;
@@ -92,44 +92,49 @@ export const incrementalCheckWin = ({
   return false;
 };
 
-export const placeOnePiece = ({
-  gameType,
-  col,
-  row = 0,
-  curRecord,
-  fullColumn,
-  checkAgainst,
-  next,
-}: {
+export interface PlaceOnePieceProps {
   gameType: Readonly<GameType>;
-  col: Readonly<number>;
-  row?: Readonly<number>;
+  colInd: Readonly<number>;
+  rowInd?: Readonly<number>;
   curRecord: Readonly<GameRecord>;
   fullColumn: Readonly<number>;
   checkAgainst: Readonly<number>;
   next: Readonly<number[]>;
-}): GameRecord => {
+}
+
+export const placeOnePiece = ({
+  gameType,
+  colInd,
+  rowInd = 0,
+  curRecord,
+  fullColumn,
+  checkAgainst,
+  next,
+}: PlaceOnePieceProps): GameRecord => {
   // determine current piece
-  const piece = gameType === GameType.connectN ? curRecord.filledBoard[col] + 1 : 1 << row;
+  const piece =
+    gameType === GameType.connectN
+      ? curRecord.boards.reduce((result, board) => result | board[colInd] || board[colInd], 0) + 1
+      : 1 << rowInd;
 
   // determine if the column is all occupied before placing
-  if (!(curRecord.filledBoard[col] & piece)) return curRecord;
+  if (!(curRecord.filledBoard[colInd] & piece)) return curRecord;
 
   /* eslint no-param-reassign: ["error", { "props": true, "ignorePropertyModificationsFor": ["draftRecord"] }] */
   return produce(curRecord, (draftRecord: GameRecord) => {
     // toggle piece
-    draftRecord.boards[draftRecord.turn][col] ^= piece;
-    draftRecord.filledBoard[col] ^= piece;
+    draftRecord.boards[draftRecord.turn][colInd] ^= piece;
+    draftRecord.filledBoard[colInd] ^= piece;
 
     // determine if the column is all occupied after placing
-    if (!draftRecord.filledBoard[col]) draftRecord.filledColumn ^= 1 << col;
+    if (!draftRecord.filledBoard[colInd]) draftRecord.filledColumn ^= 1 << colInd;
 
     // determine game status
     if (
       incrementalCheckWin({
         board: draftRecord.boards[draftRecord.turn],
         piece,
-        col,
+        colInd,
         checkAgainst,
         fullColumn,
       })
@@ -147,23 +152,27 @@ export const placeOnePiece = ({
   });
 };
 
-export const getBanner = (record: GameRecord, names: string[]): string => {
-  if (record.gameOver) {
-    return record.win >= 0 ? `Winner is ${names[record.turn]}!` : 'Drawed';
+export interface GetBannerProps
+  extends Pick<GameRecord, 'gameOver' | 'win' | 'turn'>,
+    Pick<GameSetup, 'names'> {}
+
+export const getBanner = ({ gameOver, win, turn, names }: GetBannerProps): string => {
+  if (gameOver) {
+    return win >= 0 ? `Winner is ${names[turn]}!` : 'Drawed';
   }
-  return `It's ${names[record.turn]}'s turn`;
+  return `It's ${names[turn]}'s turn`;
 };
 
-export const resetGame = (
-  curRecord: GameRecord,
-  { next, fullColumn, fullBoard, boardSetup }: GameSetup
-) => {
-  return produce(curRecord, (draftRecord: GameRecord) => {
-    draftRecord.win = -1;
-    draftRecord.filledColumn = fullColumn;
-    draftRecord.filledBoard = fullBoard;
-    draftRecord.gameOver = false;
-    draftRecord.turn = draftRecord.turn || 0;
-    draftRecord.boards = next.map(() => boardSetup.slice());
-  });
-};
+export interface ResetGameProps
+  extends Pick<GameSetup, 'next' | 'fullColumn' | 'fullBoard' | 'boardSetup'> {
+  turn?: number;
+}
+
+export const resetGame = ({ next, fullColumn, fullBoard, boardSetup, turn }: ResetGameProps) => ({
+  win: -1,
+  filledColumn: fullColumn,
+  filledBoard: fullBoard,
+  gameOver: false,
+  turn: turn || 0,
+  boards: next.map(() => boardSetup.slice()),
+});

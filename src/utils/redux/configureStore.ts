@@ -6,6 +6,7 @@ import {
   StoreEnhancer,
   Store,
   Action,
+  AnyAction,
   Middleware,
 } from 'redux';
 import createSagaMiddleware, { Saga } from 'redux-saga';
@@ -17,35 +18,40 @@ export interface SagaMapObject {
   [key: string]: Saga;
 }
 
-interface StoreReducerEnhanced extends SagaTasksProp {
-  commonReducers: ReducersMapObject;
-  asyncReducers: ReducersMapObject;
-  addReducer(key: string, asyncReducer: Reducer): void;
+interface StoreReducerEnhanced<A extends Action = AnyAction> extends SagaTasksProp {
+  commonReducers: ReducersMapObject<any, A>;
+  asyncReducers: ReducersMapObject<any, A>;
+  addReducer(key: string, asyncReducer: Reducer<any, A>): void;
   removeReducer(key: string): void;
-  injectReducers(reducers: ReducersMapObject): void;
-  substitueReducers(reducers: ReducersMapObject): void;
+  injectReducers(reducers: ReducersMapObject<any, A>): void;
+  substitueReducers(reducers: ReducersMapObject<any, A>): void;
   addSaga(key: string, saga: Saga): void;
   removeSaga(key: string): Promise<void>;
   injectSagas(sagas: SagaMapObject): void;
   substitueSagas(sagas: SagaMapObject): Promise<void>;
 }
 
-export interface ReducerEnhancedStore extends Store, StoreReducerEnhanced {}
+export interface ReducerEnhancedStore<A extends Action = AnyAction>
+  extends Store<any, A>,
+    StoreReducerEnhanced<A> {}
 
-const configureStore = ({
+const configureStore = <A extends Action = AnyAction>({
   commonReducers,
   enhancer,
   middlewareArray = [],
   rootSaga,
 }: {
-  commonReducers: ReducersMapObject;
+  commonReducers: ReducersMapObject<any, A>;
   enhancer(...args: Middleware[]): StoreEnhancer;
   middlewareArray?: Middleware[];
   rootSaga?: Saga;
-}): MakeStore<ReducerEnhancedStore> => (initialState: any = {}) => {
+}): MakeStore<ReducerEnhancedStore<A>> => (initialState: any = {}) => {
   let keysToRemove: string[] = [];
 
-  const createReducer = (asyncReducers?: ReducersMapObject) => (state: any, action: Action) => {
+  const createReducer = (asyncReducers?: ReducersMapObject<any, A>): Reducer<any, A> => (
+    state,
+    action
+  ) => {
     let updatedState = state;
     if (keysToRemove.length > 0) {
       updatedState = objectAssign(([k]) => !(k in keysToRemove))({}, state);
@@ -60,7 +66,7 @@ const configureStore = ({
   const sagaMiddleware = createSagaMiddleware();
 
   middlewareArray.unshift(sagaMiddleware);
-  const store: ReducerEnhancedStore = Object.assign(
+  const store: ReducerEnhancedStore<A> = Object.assign(
     createStore(createReducer(), initialState, enhancer(...middlewareArray)),
     {
       commonReducers,
@@ -138,7 +144,7 @@ const configureStore = ({
         await removeSagas;
         store.sagaTasks = objectAssign(([k]) => !sagaKeysToRemove.includes(k))({}, store.sagaTasks);
       },
-    } as StoreReducerEnhanced
+    } as StoreReducerEnhanced<A>
   );
 
   return store;

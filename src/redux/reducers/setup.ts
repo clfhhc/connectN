@@ -1,5 +1,6 @@
 import { Reducer } from 'redux';
-import { ActionWithPayload, CHANGE_PLAYERS, CHANGE_RULES } from '../actions/actionTypes';
+import { ActionWithPayload } from '../../utils/redux/types';
+import { CHANGE_PLAYERS, CHANGE_RULES, RESET_SETUP } from '../actions/actionTypes';
 import { GameType, GameSetup } from '../../utils/connectN/connectN';
 
 interface BoardLimit {
@@ -50,7 +51,7 @@ export const limitPlayers: { [key in GameType]: PlayerLimit } = {
   },
 };
 
-export const inititalState: { [key in GameType]: GameSetup } = {
+export const initialSetup: { [key in GameType]: GameSetup } = {
   ticTacToe: {
     rowNum: 3,
     colNum: 3,
@@ -86,49 +87,61 @@ export const inititalState: { [key in GameType]: GameSetup } = {
   },
 };
 
-const reducer: { [key: string]: Reducer<any, ActionWithPayload<any>> } = {
-  [CHANGE_PLAYERS]: (
-    state,
-    action: ActionWithPayload<Pick<GameSetup, 'names'> & { gameType: GameType }>
-  ) => {
-    const { names, gameType } = action.payload;
-    const { maxPlayers, minPlayers } = limitPlayers[gameType];
+export const initialState: Readonly<GameSetup> = initialSetup.ticTacToe;
 
-    if (names.length > maxPlayers || names.length < minPlayers) {
-      return state;
-    }
-    return {
-      ...state,
-      names,
-      next: names.map((_, ind) => (ind + 1 === names.length ? 0 : ind + 1)),
-    };
-  },
-  [CHANGE_RULES]: (
-    state,
-    action: ActionWithPayload<
-      Pick<GameSetup, 'rowNum' | 'colNum' | 'winRule'> & { gameType: GameType }
-    >
-  ) => {
-    const { rowNum, colNum, winRule, gameType } = action.payload;
-    const { maxCol, minCol, maxRow, minRow } = limitBoard[gameType];
+interface GameTypeProps {
+  gameType: GameType;
+}
 
-    if (winRule > rowNum || winRule > colNum || winRule < 3) {
+export interface ChangePlayersProps extends Pick<GameSetup, 'names'>, GameTypeProps {}
+
+export interface ChangeRulesProps
+  extends Pick<GameSetup, 'rowNum' | 'colNum' | 'winRule'>,
+    GameTypeProps {}
+
+const reducer: Reducer<Readonly<GameSetup>, ActionWithPayload> = (state = initialState, action) => {
+  switch (action.type) {
+    case RESET_SETUP: {
+      return action.payload as Readonly<GameSetup>;
+    }
+    case CHANGE_PLAYERS: {
+      const { names, gameType } = action.payload as Readonly<ChangePlayersProps>;
+      const { maxPlayers, minPlayers } = limitPlayers[gameType];
+
+      if (names.length > maxPlayers || names.length < minPlayers) {
+        return state;
+      }
+      return {
+        ...state,
+        names,
+        next: names.map((_, ind) => (ind + 1 === names.length ? 0 : ind + 1)),
+      };
+    }
+    case CHANGE_RULES: {
+      const { rowNum, colNum, winRule, gameType } = action.payload as Readonly<ChangeRulesProps>;
+      const { maxCol, minCol, maxRow, minRow } = limitBoard[gameType];
+
+      if (winRule > rowNum || winRule > colNum || winRule < 3) {
+        return state;
+      }
+      if (colNum > maxCol || colNum < minCol || rowNum > maxRow || rowNum < minRow) {
+        return state;
+      }
+      return {
+        ...state,
+        rowNum,
+        colNum,
+        winRule,
+        fullColumn: 2 ** colNum - 1,
+        fullBoard: Array(colNum).fill(2 ** rowNum - 1),
+        checkAgainst: 2 ** winRule - 1,
+        boardSetup: Array(colNum).fill(0),
+      };
+    }
+    default: {
       return state;
     }
-    if (colNum > maxCol || colNum < minCol || rowNum > maxRow || rowNum < minRow) {
-      return state;
-    }
-    return {
-      ...state,
-      rowNum,
-      colNum,
-      winRule,
-      fullColumn: 2 ** colNum - 1,
-      fullBoard: Array(colNum).fill(2 ** rowNum - 1),
-      checkAgainst: 2 ** winRule - 1,
-      boardSetup: Array(colNum).fill(0),
-    };
-  },
+  }
 };
 
 export default reducer;

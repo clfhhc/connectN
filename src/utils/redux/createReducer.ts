@@ -1,8 +1,8 @@
-import { Action, ReducersMapObject } from 'redux';
+import { Reducer } from 'redux';
 
-const createReducer = (initialState: any, handlers: ReducersMapObject) => (
+const createReducer = (initialState: any, handlers: { [key: string]: Reducer<any, any> }) => (
   state: any = initialState,
-  action: Action
+  action: any
 ) => (handlers[action.type] ? handlers[action.type](state, action) : state);
 
 export default createReducer;
