@@ -1,19 +1,19 @@
 self.__precacheManifest = [
   {
-    "url": "/connectN/_next/static/B39oaoaF5nVhD4hP-pCvw/pages/_app.js",
-    "revision": "96a598221f87d58a051f"
+    "url": "/connectN/_next/static/PiaEE6fy-P0Q4-M4ZxNT2/pages/_app.js",
+    "revision": "3053bfaa75544b090d39"
   },
   {
-    "url": "/connectN/_next/static/B39oaoaF5nVhD4hP-pCvw/pages/_error.js",
-    "revision": "1abf691de418122a499e"
+    "url": "/connectN/_next/static/PiaEE6fy-P0Q4-M4ZxNT2/pages/_error.js",
+    "revision": "6e58c3b64a0fb91cd6bf"
   },
   {
-    "url": "/connectN/_next/static/B39oaoaF5nVhD4hP-pCvw/pages/connect-n.js",
-    "revision": "9b73db9edc3354cb66d6"
+    "url": "/connectN/_next/static/PiaEE6fy-P0Q4-M4ZxNT2/pages/connect-n.js",
+    "revision": "e37d77ec11fd40790720"
   },
   {
-    "url": "/connectN/_next/static/B39oaoaF5nVhD4hP-pCvw/pages/tic-tac-toe.js",
-    "revision": "c896cd7eda1913ea0bba"
+    "url": "/connectN/_next/static/PiaEE6fy-P0Q4-M4ZxNT2/pages/tic-tac-toe.js",
+    "revision": "ede8cedc0eeb26aa8af7"
   },
   {
     "url": "/connectN/_next/static/chunks/commons.a651434c2f2de7a3b951.js",

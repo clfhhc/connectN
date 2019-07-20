@@ -1,4 +1,5 @@
 import React, { FC } from 'react';
+import getConfig from 'next/config';
 import ManifestHead from '../src/components/Head/ManifestHead';
 import dynamicStoreCallbackWrap from '../src/utils/redux/dynamicStoreCallbackWrap';
 import { Store } from '../src/redux/store';
@@ -7,6 +8,9 @@ import setup, { initialSetup } from '../src/redux/reducers/setup';
 import game from '../src/redux/reducers/game';
 import { RESET_SETUP, RESTART_GAME } from '../src/redux/actions/actionTypes';
 import { ActionWithPayload } from '../src/utils/redux/types';
+
+const { publicRuntimeConfig } = getConfig();
+const { commonKeyWords } = publicRuntimeConfig;
 
 const storeCallback = (store: Store) => {
   store.substitueReducers({ setup, game });
@@ -18,6 +22,8 @@ export const Page: FC = () => (
   <section>
     <ManifestHead
       title="Connect N"
+      description="a simple expandable connect game like connect 4 using bitwise operations"
+      keywords={commonKeyWords}
       themeColor="red"
       hrefCanonical="/connect-n"
       favIconPath="/static/icons/favicon.ico"
