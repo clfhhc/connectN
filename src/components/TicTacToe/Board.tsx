@@ -47,7 +47,11 @@ const checkerStyles = css`
     display: table-cell;
     text-align: center;
     vertical-align: middle;
-    font-size: calc(${rem(60)});
+    font-size: ${rem(60)};
+
+    @media only screen and (max-width: 248px) {
+      font-size: 25vw;
+    }
   }
 `;
 
