@@ -5,7 +5,8 @@ import { StoreProps } from './withRedux';
 import { ReducerEnhancedStore } from './configureStore';
 
 interface DynamicStoreCallbackWrapProps<A extends Action = any> {
-  callback(store: ReducerEnhancedStore<A>): void;
+  callbackOnMount(store: ReducerEnhancedStore<A>): void;
+  callbackOnUnmount?(store: ReducerEnhancedStore<A>): void;
   Child?: ComponentType<any>;
 }
 
@@ -13,9 +14,19 @@ interface DynamicStoreCallbackProps
   extends DynamicStoreCallbackWrapProps<any>,
     StoreProps<ReducerEnhancedStore<any>> {}
 
-const DynamicStoreCallback: FC<DynamicStoreCallbackProps> = ({ store, callback, Child }) => {
+const DynamicStoreCallback: FC<DynamicStoreCallbackProps> = ({
+  store,
+  callbackOnMount,
+  callbackOnUnmount,
+  Child,
+}) => {
   useEffect(() => {
-    callback(store);
+    callbackOnMount(store);
+    return () => {
+      if (callbackOnUnmount) {
+        callbackOnUnmount(store);
+      }
+    };
   }, []);
 
   return Child ? <Child /> : null;
@@ -24,11 +35,16 @@ const DynamicStoreCallback: FC<DynamicStoreCallbackProps> = ({ store, callback, 
 function dynamicStoreCallbackWrap<
   A extends Action = AnyAction,
   S extends ReducerEnhancedStore<A> = ReducerEnhancedStore<A>
->({ callback, Child }: DynamicStoreCallbackWrapProps) {
+>({ callbackOnMount, callbackOnUnmount, Child }: DynamicStoreCallbackWrapProps) {
   return () => (
     <ReactReduxContext.Consumer>
       {({ store }: { store: unknown }) => (
-        <DynamicStoreCallback callback={callback} store={store as S} Child={Child} />
+        <DynamicStoreCallback
+          callbackOnMount={callbackOnMount}
+          callbackOnUnmount={callbackOnUnmount}
+          store={store as S}
+          Child={Child}
+        />
       )}
     </ReactReduxContext.Consumer>
   );
