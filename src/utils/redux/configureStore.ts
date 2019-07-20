@@ -22,11 +22,11 @@ interface StoreReducerEnhanced<A extends Action = AnyAction> extends SagaTasksPr
   commonReducers: ReducersMapObject<any, A>;
   asyncReducers: ReducersMapObject<any, A>;
   addReducer(key: string, asyncReducer: Reducer<any, A>): void;
-  removeReducer(key: string): void;
+  removeReducers(keys: string[]): void;
   injectReducers(reducers: ReducersMapObject<any, A>): void;
   substitueReducers(reducers: ReducersMapObject<any, A>): void;
   addSaga(key: string, saga: Saga): void;
-  removeSaga(key: string): Promise<void>;
+  removeSagas(keys: string[]): Promise<void>;
   injectSagas(sagas: SagaMapObject): void;
   substitueSagas(sagas: SagaMapObject): Promise<void>;
 }
@@ -54,7 +54,7 @@ const configureStore = <A extends Action = AnyAction>({
   ) => {
     let updatedState = state;
     if (keysToRemove.length > 0) {
-      updatedState = objectAssign(([k]) => !(k in keysToRemove))({}, state);
+      updatedState = objectAssign(([k]) => !keysToRemove.includes(k))({}, state);
       keysToRemove = [];
     }
     return combineReducers({
@@ -80,12 +80,17 @@ const configureStore = <A extends Action = AnyAction>({
         store.replaceReducer(createReducer(store.asyncReducers));
       },
 
-      removeReducer: key => {
-        if (!key || !store.asyncReducers[key]) {
-          return;
-        }
-        store.asyncReducers = objectAssign(([k]) => k !== key)({}, store.asyncReducers);
-        keysToRemove.push(key);
+      removeReducers: keys => {
+        keys.forEach(key => {
+          if (!key || !store.asyncReducers[key]) {
+            return;
+          }
+          keysToRemove.push(key);
+        });
+        store.asyncReducers = objectAssign(([k]) => !keysToRemove.includes(k))(
+          {},
+          store.asyncReducers
+        );
         store.replaceReducer(createReducer(store.asyncReducers));
       },
 
@@ -109,12 +114,16 @@ const configureStore = <A extends Action = AnyAction>({
         store.sagaTasks[key] = sagaMiddleware.run(saga);
       },
 
-      removeSaga: async key => {
-        if (!key || !store.sagaTasks[key]) {
-          return;
-        }
-        await store.sagaTasks[key].cancel();
-        store.sagaTasks = objectAssign(([k]) => k !== key)({}, store.sagaTasks);
+      removeSagas: async keys => {
+        const sagaKeysToRemove: string[] = [];
+        keys.forEach(key => {
+          if (!key || !store.sagaTasks[key]) {
+            return;
+          }
+          store.sagaTasks[key].cancel();
+          sagaKeysToRemove.push(key);
+        });
+        store.sagaTasks = objectAssign(([k]) => !sagaKeysToRemove.includes(k))({}, store.sagaTasks);
       },
 
       injectSagas: sagas => {
