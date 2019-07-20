@@ -69,20 +69,12 @@ const checkerStylesOnGameType: { [key in string]: SerializedStyles } = {
     right: 0;
     top: 0;
     bottom: 0;
-    & div {
-      width: 100%;
-      height: 100%;
-      display: table;
-    }
-    & span {
+    display: block;
+
+    & text {
       display: table-cell;
       text-align: center;
       vertical-align: middle;
-      font-size: ${rem(60)};
-
-      @media only screen and (max-width: 248px) {
-        font-size: 25vw;
-      }
     }
   `,
 };
@@ -123,6 +115,14 @@ export const playerCheckerStylesOnGameType: { [key in string]: SerializedStyles[
     `,
   ],
 };
+
+const TicTacToePiece: FC<{ type?: 'O' | 'X' }> = ({ type }) => (
+  <svg viewBox={type === 'O' ? '2 2 9 11' : '2 2 9 9'}>
+    <text x={type === 'O' ? '2.5' : '3'} y={type === 'O' ? '10.5' : '10.5'} fontWeight="300">
+      {type}
+    </text>
+  </svg>
+);
 
 interface Props {
   gameType?: GameType;
@@ -167,17 +167,14 @@ const Board: FC<Props> = ({ gameType = GameType.connectN, rowNum, boards, onClic
                   ),
               ]}
             >
-              {gameType === GameType.ticTacToe && (
-                <div>
-                  <span>
-                    {boards.reduce(
-                      (result, _n, ind) =>
-                        (boards[ind][colInd] & (1 << rowInd) && ['O', 'X'][ind]) || result,
-                      ''
-                    )}
-                  </span>
-                </div>
-              )}
+              {gameType === GameType.ticTacToe &&
+                boards.reduce(
+                  (result, _n, ind) =>
+                    (boards[ind][colInd] & (1 << rowInd) &&
+                      [<TicTacToePiece type="O" />, <TicTacToePiece type="X" />][ind]) ||
+                    result,
+                  <TicTacToePiece />
+                )}
             </div>
           </button>
         ))
