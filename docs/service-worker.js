@@ -1,39 +1,31 @@
 self.__precacheManifest = [
   {
-    "url": "/Nextjs_Ts_Eslint/_next/static/MbPH6PmLuF7Muu32SThdR/pages/_app.js",
-    "revision": "9453db079c5012e8a85f"
+    "url": "/Nextjs_Ts_Eslint/_next/static/chunks/commons.a651434c2f2de7a3b951.js",
+    "revision": "509a088985f292c0b39b"
   },
   {
-    "url": "/Nextjs_Ts_Eslint/_next/static/MbPH6PmLuF7Muu32SThdR/pages/_error.js",
-    "revision": "4c832c27353cde6dfeb1"
+    "url": "/Nextjs_Ts_Eslint/_next/static/runtime/main-176a55f7068f052914c2.js",
+    "revision": "785c368b5a3d9fe5b476"
   },
   {
-    "url": "/Nextjs_Ts_Eslint/_next/static/MbPH6PmLuF7Muu32SThdR/pages/about.js",
-    "revision": "419e36a5217972d77413"
+    "url": "/Nextjs_Ts_Eslint/_next/static/runtime/webpack-3df6523e264ff2ac6548.js",
+    "revision": "b0a559ac8f238b6fd6f7"
   },
   {
-    "url": "/Nextjs_Ts_Eslint/_next/static/MbPH6PmLuF7Muu32SThdR/pages/amp-install-serviceworker-script.js",
-    "revision": "5c36b8439d022e97256e"
+    "url": "/Nextjs_Ts_Eslint/_next/static/rusZYQYO1AJolR2juujHn/pages/_app.js",
+    "revision": "88ae4c01509ed3681824"
   },
   {
-    "url": "/Nextjs_Ts_Eslint/_next/static/MbPH6PmLuF7Muu32SThdR/pages/count.js",
-    "revision": "774432a90a8e8a970b8c"
+    "url": "/Nextjs_Ts_Eslint/_next/static/rusZYQYO1AJolR2juujHn/pages/_error.js",
+    "revision": "1656ddd003de9b0a1784"
   },
   {
-    "url": "/Nextjs_Ts_Eslint/_next/static/MbPH6PmLuF7Muu32SThdR/pages/stats.js",
-    "revision": "aac1b3af1e7746fa3ea2"
+    "url": "/Nextjs_Ts_Eslint/_next/static/rusZYQYO1AJolR2juujHn/pages/connectN.js",
+    "revision": "6dac6840734477a13cc2"
   },
   {
-    "url": "/Nextjs_Ts_Eslint/_next/static/chunks/commons.fc7fbf21eae53e738a9b.js",
-    "revision": "2ec15b9540b62290296f"
-  },
-  {
-    "url": "/Nextjs_Ts_Eslint/_next/static/runtime/main-2570a7045a83e31895c5.js",
-    "revision": "5d8a4c957e9acb35cfd5"
-  },
-  {
-    "url": "/Nextjs_Ts_Eslint/_next/static/runtime/webpack-02abf031fc7e13766d3d.js",
-    "revision": "fba09cad31602b08916f"
+    "url": "/Nextjs_Ts_Eslint/_next/static/rusZYQYO1AJolR2juujHn/pages/ticTacToe.js",
+    "revision": "56c891acaeee7e445dab"
   }
 ];
 
