@@ -122,7 +122,7 @@ export const playerCheckerStylesOnGameType: { [key in string]: SerializedStyles[
 const TicTacToePiece: FC<{ type?: 'O' | 'X' }> = ({ type }) => (
   <svg viewBox={type === 'O' ? '0 0 11 12' : '0 0 10 12'}>
     <text
-      x={type === 'O' ? '1' : '1'}
+      x={type === 'O' ? '1.5' : '1.5'}
       y={type === 'O' ? '10' : '10'}
       textAnchor="center"
       fontWeight="300"
