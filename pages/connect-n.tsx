@@ -40,10 +40,10 @@ const callbackOnUnmount = (store: Store) => {
 };
 
 export const Page: FC = () => (
-  <section>
+  <div>
     <ManifestHead
       title="Connect N"
-      description="a simple expandable connect game like connect 4 using bitwise operations"
+      description="Connect N - a simple expandable connect game like connect 4 using bitwise operations"
       keywords={commonKeyWords}
       themeColor="red"
       hrefCanonical="/connect-n"
@@ -52,14 +52,16 @@ export const Page: FC = () => (
       hrefManifest="/static/manifest/manifest.json"
     />
     <ConnectN gameType={GameType.connectN} />
-    <div css={flexCenterStyles}>
-      <Link href="/">
-        <a>
-          <div css={linkStyles}>index</div>
-        </a>
-      </Link>
-    </div>
-  </section>
+    <footer>
+      <div css={flexCenterStyles}>
+        <Link href="/">
+          <a>
+            <div css={linkStyles}>index</div>
+          </a>
+        </Link>
+      </div>
+    </footer>
+  </div>
 );
 
 export default dynamicStoreCallbackWrap<ActionWithPayload, Store>({

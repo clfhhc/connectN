@@ -19,6 +19,7 @@ class MyApp extends App<StoreProps<Store>> {
               globalButtonReset,
               css`
                 body {
+                  font-family: Verdana, Geneva, sans-serif;
                   touch-action: manipulation;
                 }
                 a:link {

@@ -32,10 +32,10 @@ const linkBoardStyles = css`
 `;
 
 const Page: FC = () => (
-  <section>
+  <div>
     <ManifestHead
-      title="Connect Game"
-      description="a simple connect game using bitwise operations"
+      title="Connect Games"
+      description="Connect Games - simple connect games using bitwise operations"
       keywords={commonKeyWords}
       themeColor="red"
       hrefCanonical="/"
@@ -43,23 +43,28 @@ const Page: FC = () => (
       appleIconPath="/static/icons/icon192x192.png"
       hrefManifest="/static/manifest/manifest.json"
     />
-    <Link href="/connect-n">
-      <a>
-        <div css={linkBoardStyles}>
-          <Board gameType={GameType.connectN} boards={[[1, 0], [0, 2]]} rowNum={2} />
-          <span>Connect N</span>
-        </div>
-      </a>
-    </Link>
-    <Link href="/tic-tac-toe">
-      <a>
-        <div css={linkBoardStyles}>
-          <Board gameType={GameType.ticTacToe} boards={[[0, 2, 0], [0, 0, 4]]} rowNum={3} />
-          <span>Tic Tac Toe</span>
-        </div>
-      </a>
-    </Link>
-  </section>
+    <header>
+      <h1 css={css`text-align: center; font-weight: normal;`}>Connect Games</h1>
+    </header>
+    <main>
+      <Link href="/connect-n">
+        <a>
+          <div css={linkBoardStyles}>
+            <Board gameType={GameType.connectN} boards={[[1, 0], [0, 2]]} rowNum={2} />
+            <span>Connect N</span>
+          </div>
+        </a>
+      </Link>
+      <Link href="/tic-tac-toe">
+        <a>
+          <div css={linkBoardStyles}>
+            <Board gameType={GameType.ticTacToe} boards={[[0, 2, 0], [0, 0, 4]]} rowNum={3} />
+            <span>Tic Tac Toe</span>
+          </div>
+        </a>
+      </Link>
+    </main>
+  </div>
 );
 
 export default Page;

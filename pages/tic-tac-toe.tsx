@@ -40,10 +40,10 @@ const callbackOnUnmount = (store: Store) => {
 };
 
 export const Page: FC = () => (
-  <section>
+  <div>
     <ManifestHead
       title="Tic Tac Toe"
-      description="a simple tic-tac-toe game using bitwise operations"
+      description="Tic Tac Toe - a simple tic-tac-toe game using bitwise operations"
       keywords={commonKeyWords}
       themeColor="red"
       hrefCanonical="/tic-tac-toe"
@@ -52,14 +52,16 @@ export const Page: FC = () => (
       hrefManifest="/static/manifest/manifest.json"
     />
     <ConnectN gameType={GameType.ticTacToe} />
-    <div css={flexCenterStyles}>
-      <Link href="/">
-        <a>
-          <div css={linkStyles}>index</div>
-        </a>
-      </Link>
-    </div>
-  </section>
+    <footer>
+      <div css={flexCenterStyles}>
+        <Link href="/">
+          <a>
+            <div css={linkStyles}>index</div>
+          </a>
+        </Link>
+      </div>
+    </footer>
+  </div>
 );
 
 export default dynamicStoreCallbackWrap<ActionWithPayload, Store>({
