@@ -51,7 +51,7 @@ const Page: FC = () => (
         <a>
           <div css={linkBoardStyles}>
             <Board gameType={GameType.connectN} boards={[[1, 0], [0, 2]]} rowNum={2} />
-            <span>Connect N</span>
+            <span>Game 1</span>
           </div>
         </a>
       </Link>
@@ -59,7 +59,7 @@ const Page: FC = () => (
         <a>
           <div css={linkBoardStyles}>
             <Board gameType={GameType.ticTacToe} boards={[[0, 2, 0], [0, 0, 4]]} rowNum={3} />
-            <span>Tic Tac Toe</span>
+            <span>Game 2</span>
           </div>
         </a>
       </Link>
