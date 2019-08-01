@@ -24,6 +24,7 @@ const linkBoardStyles = css`
 
   & span {
     font-size: ${rem(30)};
+    border: ${rem(1)} dotted gray;
 
     @media only screen and (max-width: ${rem(165)}) {
       font-size: 16.5vw;
@@ -44,14 +45,21 @@ const Page: FC = () => (
       hrefManifest="/static/manifest/manifest.json"
     />
     <header>
-      <h1 css={css`text-align: center; font-weight: normal;`}>Connect Games</h1>
+      <h1
+        css={css`
+          text-align: center;
+          font-weight: normal;
+        `}
+      >
+        Connect Games
+      </h1>
     </header>
     <main>
       <Link href="/connect-n">
         <a>
           <div css={linkBoardStyles}>
             <Board gameType={GameType.connectN} boards={[[1, 0], [0, 2]]} rowNum={2} />
-            <span>Game 1</span>
+            <span>Connect N</span>
           </div>
         </a>
       </Link>
@@ -59,7 +67,7 @@ const Page: FC = () => (
         <a>
           <div css={linkBoardStyles}>
             <Board gameType={GameType.ticTacToe} boards={[[0, 2, 0], [0, 0, 4]]} rowNum={3} />
-            <span>Game 2</span>
+            <span>Tic Tac Toe</span>
           </div>
         </a>
       </Link>

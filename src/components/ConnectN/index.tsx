@@ -30,28 +30,13 @@ enum Settings {
 const titleStyles = css`
   display: block;
   text-align: center;
-  margin: ${rem(40)} auto;
-  font-size: ${rem(36)};
-  border-top: ${rem(1)} solid transparent;
-  border-bottom: ${rem(1)} solid transparent;
+  margin: ${rem(15)} auto;
+  font-size: ${rem(32)};
 `;
 
-const titleStylesOnN = (setting: Settings | null, winRule: number) => css`
-  cursor: pointer;
-
+const titleStylesOnN = (winRule: number) => css`
   &::after {
-    content: '${
-      setting === Settings.CHANGE_RULES_SETTINGS ? 'Change Rules' : `Connect ${winRule}`
-    }';
-  }
-
-  &:hover {
-    border-top: ${rem(1)} solid black;
-    border-bottom: ${rem(1)} solid black;
-  }
-
-  &:hover ::after {
-    content: 'Change Rules';
+    content: 'Connect ${winRule}';
   }
 `;
 
@@ -64,42 +49,23 @@ const titleStylesForTicTacToe = css`
 const bannerStylesOnBanner = (banner: string) => css`
   display: block;
   text-align: center;
-  margin: ${rem(20)} auto;
+  margin: ${rem(10)} auto;
   font-size: ${rem(20)};
-  cursor: pointer;
-  border-top: ${rem(1)} solid transparent;
-  border-bottom: ${rem(1)} solid transparent;
   height: 100%;
 
   ::after {
     content: "${banner}";
   }
-
-  :hover {
-    border-top: ${rem(1)} solid black;
-    border-bottom: ${rem(1)} solid black;
-  }
-
-  :hover ::after {
-    content: 'Restart Game';
-  }
 `;
 
 const legendStyles = css`
+  box-sizing: border-box;
   display: flex;
   flex-flow: row wrap;
-  margin: ${rem(20)} auto;
+  margin: ${rem(10)} auto;
   font-size: ${rem(20)};
   justify-content: center;
-  cursor: pointer;
-  border-top: ${rem(1)} solid transparent;
-  border-bottom: ${rem(1)} solid transparent;
   height: 100%;
-
-  :hover {
-    border-top: ${rem(1)} solid black;
-    border-bottom: ${rem(1)} solid black;
-  }
 `;
 
 const legendLabelStyles = css`
@@ -137,11 +103,27 @@ const inputStyles = css`
   text-align: center;
   font-size: ${rem(16)};
   outline: none;
-  margin: ${rem(20)} auto;
+  margin: ${rem(10)} auto;
   max-width: ${rem(350)};
   border: ${rem(1)} solid gray;
   height: 100%;
   width: 100%;
+`;
+
+const buttonFlexStyles = css`
+  display: flex;
+  justify-content: center;
+`;
+
+const buttonStyles = css`
+  font-size: ${rem(20)};
+  border: ${rem(1)} dashed gray;
+  cursor: pointer;
+  margin: ${rem(10)} ${rem(15)};
+
+  :hover {
+    color: blue;
+  }
 `;
 
 const mapStateToProps = (state: any): { setup: GameSetup; game: GameRecord } => ({
@@ -270,19 +252,12 @@ const ConnectN: FC<Props> = ({
   return (
     <div>
       <h1>
-        <button
-          type="button"
-          aria-label="Title"
+        <div
           css={[
             titleStyles,
-            gameType === GameType.connectN && titleStylesOnN(setting, winRule),
+            gameType === GameType.connectN && titleStylesOnN(winRule),
             gameType === GameType.ticTacToe && titleStylesForTicTacToe,
           ]}
-          onClick={() => {
-            if (setting !== Settings.CHANGE_RULES_SETTINGS && gameType === GameType.connectN) {
-              updateSetting(Settings.CHANGE_RULES_SETTINGS);
-            }
-          }}
         />
       </h1>
       <div css={inputContainerStyles}>
@@ -301,12 +276,7 @@ const ConnectN: FC<Props> = ({
             }}
           />
         ) : (
-          <button
-            type="button"
-            aria-label="banner"
-            css={bannerStylesOnBanner(getBanner({ gameOver, turn, names, win }))}
-            onClick={restart}
-          />
+          <div css={bannerStylesOnBanner(getBanner({ gameOver, turn, names, win }))} />
         )}
       </div>
       <div css={inputContainerStyles}>
@@ -327,12 +297,7 @@ const ConnectN: FC<Props> = ({
             onBlur={clearSetting}
           />
         ) : (
-          <button
-            type="button"
-            aria-label="legend"
-            css={legendStyles}
-            onClick={() => updateSetting(Settings.CHANGE_PLAYERS_SETTINGS)}
-          >
+          <div css={legendStyles}>
             {names.map((n, ind) => (
               <div css={legendLabelStyles} key={`legend-${n}`}>
                 <div
@@ -345,8 +310,33 @@ const ConnectN: FC<Props> = ({
                 {n}
               </div>
             ))}
+          </div>
+        )}
+      </div>
+      <div css={buttonFlexStyles}>
+        {gameType !== GameType.ticTacToe && (
+          <button
+            type="button"
+            css={buttonStyles}
+            onClick={() => {
+              if (setting !== Settings.CHANGE_RULES_SETTINGS && gameType === GameType.connectN) {
+                updateSetting(Settings.CHANGE_RULES_SETTINGS);
+              }
+            }}
+          >
+            Change Rules
           </button>
         )}
+        <button
+          type="button"
+          css={buttonStyles}
+          onClick={() => updateSetting(Settings.CHANGE_PLAYERS_SETTINGS)}
+        >
+          Change Players
+        </button>
+        <button type="button" css={buttonStyles} onClick={restart}>
+          Restart
+        </button>
       </div>
       <Board
         gameType={gameType}
