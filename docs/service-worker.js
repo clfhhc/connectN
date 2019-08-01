@@ -1,31 +1,31 @@
 self.__precacheManifest = [
   {
-    "url": "/connectN/_next/static/_3PJiklsTsx_LjoQ6e2Ei/pages/_app.js",
-    "revision": "a504f451cc07076b5b12"
+    "url": "/connectN/_next/static/chunks/commons.c0ff968e8056dbe18476.js",
+    "revision": "010ecdbc35970e3937f0"
   },
   {
-    "url": "/connectN/_next/static/_3PJiklsTsx_LjoQ6e2Ei/pages/_error.js",
-    "revision": "d5c51740e23011b9f309"
+    "url": "/connectN/_next/static/n_Iz2mHsx2d1OnTo3dNAE/pages/_app.js",
+    "revision": "824891b0517ce7d5a3b4"
   },
   {
-    "url": "/connectN/_next/static/_3PJiklsTsx_LjoQ6e2Ei/pages/connect-n.js",
-    "revision": "c7c44072a9d833fa4f3f"
+    "url": "/connectN/_next/static/n_Iz2mHsx2d1OnTo3dNAE/pages/_error.js",
+    "revision": "616adcde1e29c9c596f3"
   },
   {
-    "url": "/connectN/_next/static/_3PJiklsTsx_LjoQ6e2Ei/pages/index.js",
-    "revision": "7c0d4481ea901dde250f"
+    "url": "/connectN/_next/static/n_Iz2mHsx2d1OnTo3dNAE/pages/connect-n.js",
+    "revision": "f1cc60ec63d636214489"
   },
   {
-    "url": "/connectN/_next/static/_3PJiklsTsx_LjoQ6e2Ei/pages/tic-tac-toe.js",
-    "revision": "357bb5eacb8a6b78d07a"
+    "url": "/connectN/_next/static/n_Iz2mHsx2d1OnTo3dNAE/pages/index.js",
+    "revision": "726920f0f86e03315535"
   },
   {
-    "url": "/connectN/_next/static/chunks/commons.2eba94760db9b599dccc.js",
-    "revision": "7579d711f578fd8f0da5"
+    "url": "/connectN/_next/static/n_Iz2mHsx2d1OnTo3dNAE/pages/tic-tac-toe.js",
+    "revision": "ca4ded862a883b6efb5c"
   },
   {
-    "url": "/connectN/_next/static/runtime/main-f6a67da19b2818bfda9b.js",
-    "revision": "0d1d51da5b09c8ef286b"
+    "url": "/connectN/_next/static/runtime/main-0fdd651ffeceb525100c.js",
+    "revision": "e0798ecf6aa93ab21bbd"
   },
   {
     "url": "/connectN/_next/static/runtime/webpack-3df6523e264ff2ac6548.js",
