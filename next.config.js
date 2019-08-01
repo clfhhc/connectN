@@ -55,8 +55,8 @@ module.exports = withManifest(
 
     manifest: {
       /* eslint-disable @typescript-eslint/camelcase */
-      short_name: 'A Simple Connect Game',
-      name: 'Connect N',
+      short_name: 'Connect N',
+      name: 'Simple Connect Games',
       start_url: `${prodAssetPrefix}/`,
       background_color: 'red',
       display: 'standalone',
